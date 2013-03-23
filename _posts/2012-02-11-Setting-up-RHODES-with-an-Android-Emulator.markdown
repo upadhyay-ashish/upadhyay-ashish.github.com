@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting up RHODES with an Android Emulator 
+title: Setting up Rhomobile with an Android Emulator 
 category: posts
 ---
 

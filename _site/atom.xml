@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T23:24:57+05:30</updated>
+ <updated>2013-03-23T23:44:13+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -58,6 +58,66 @@
 &lt;p&gt;&lt;a href=&quot;ashish.upadhyaye@gmail.com&quot;&gt;ashish.upadhyaye@gmail.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Replacing master with a branch GIT</title>
+   <link href="http://rorashish.blogspot.com/posts/Replacing-master-with-a-branch-GIT"/>
+   <updated>2013-02-25T17:19:27+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Replacing-master-with-a-branch-GIT</id>
+   <content type="html">&lt;h3&gt;This will help us to overwrite the master branch with a new branch incase the new branch is in a better state than the master&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    git checkout seotweaks
+    git merge -s ours master
+    git checkout master
+    git merge seotweaks  
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using Oracle JDBC with JRuby on Mac OSx</title>
+   <link href="http://rorashish.blogspot.com/posts/Using-Oracle-JDBC-with-JRuby-on-Mac-OSx"/>
+   <updated>2013-01-08T21:02:14+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Using-Oracle-JDBC-with-JRuby-on-Mac-OSx</id>
+   <content type="html">&lt;h3&gt;Please follow the below steps to create a jruby library to connect to any oracle database on Mac OS x using Java ODBC drivers.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create the Library folder and the Ruby file. eg &lt;code&gt;Sample.rb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add Gemfile to enable using jruby to connect to the database&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add the following gems to the Gemfile&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem 'activerecord'
+gem &quot;activerecord-jdbc-adapter&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In the ruby file Sample.rb here please use the following lines and then write appropriate  code to access the data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Person &amp;lt; ActiveRecord::Base
+    establish_connection(
+      :adapter  =&amp;gt; 'jdbc',
+      :driver   =&amp;gt; 'oracle.jdbc.driver.OracleDriver',
+      :url      =&amp;gt; 'jdbc:oracle:thin:@server:port/sid',
+      :username =&amp;gt; 'ors',
+      :password =&amp;gt; 'ors'
+      )
+      self.table_name = :table_name_here
+        def self.all
+          connection.select_all &amp;lt;&amp;lt;-SQL
+                  select * from table_name_here
+             SQL
+        end
+ end
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Go to terminal ,run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bundle install 
+jruby Sample.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If there is a driver not found error please download the driver from oracle site here
+and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 </content>
  </entry>
  
@@ -346,9 +406,9 @@ Next, move the rest of the references under refs/remotes to be local branches:&l
  
  <entry>
    <title>Capistrano</title>
-   <link href="http://rorashish.blogspot.com/posts/Capistrano"/>
+   <link href="http://rorashish.blogspot.com/posts/Capistrano-%2B-GIT-%3A-Too-many-arguments-while-deployment"/>
    <updated>2012-08-10T00:00:00+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Capistrano</id>
+   <id>http://rorashish.blogspot.com/posts/Capistrano-+-GIT-:-Too-many-arguments-while-deployment</id>
    <content type="html">&lt;h2&gt;Too many arguments while deployment&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Issue : shell command failed with return code 33024&lt;/strong&gt;&lt;/p&gt;
@@ -514,7 +574,7 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
  </entry>
  
  <entry>
-   <title>Setting up RHODES with an Android Emulator</title>
+   <title>Setting up Rhomobile with an Android Emulator</title>
    <link href="http://rorashish.blogspot.com/posts/Setting-up-RHODES-with-an-Android-Emulator"/>
    <updated>2012-02-11T00:00:00+05:30</updated>
    <id>http://rorashish.blogspot.com/posts/Setting-up-RHODES-with-an-Android-Emulator</id>
@@ -571,6 +631,76 @@ at the terminal .The screen should come up something like this :
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The android emulator will show up in a few minutes and load the rhomobile application . &lt;br/&gt;
 Now we can go forward designing the mobile application.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Export to Excel in Rails 3 without a Gem</title>
+   <link href="http://rorashish.blogspot.com/posts/Export-to-Excel-in-Rails-3-without-a-Gem"/>
+   <updated>2011-11-30T02:32:54+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Export-to-Excel-in-Rails-3-without-a-Gem</id>
+   <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Creating Demo project&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  rails new xcel_demo –d mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Creating a User model&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  rails g scaffold User name:string email:string content:string
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add a MIME type in \config\initializers\mime_type.rb&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Mime::Type.register 'application/vnd.ms-excel', :xls
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add a xls format output to the method in the Controller&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  def index
+    @users = User.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xls
+      format.xml  { render :xml =&amp;gt; @users }
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Creating the view for the XLS&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now create a view to render the xls file. Here as we have modified the index method we will create a view index.xls.erb for the same in the views for Users&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  &amp;lt;h1&amp;gt;Listing users&amp;lt;/h1&amp;gt;
+
+  &amp;lt;table&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;th&amp;gt;Name&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;City&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;Gender&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;Phone&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;Address&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;
+    &amp;lt;/tr&amp;gt;
+
+  &amp;lt;% @users.each do |user| %&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td&amp;gt;&amp;lt;%= user.name %&amp;gt;&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;&amp;lt;%= user.city %&amp;gt;&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;&amp;lt;%= user.gender %&amp;gt;&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;&amp;lt;%= user.phone %&amp;gt;&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;&amp;lt;%= user.address %&amp;gt;&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;% end %&amp;gt;
+  &amp;lt;/table&amp;gt;
+
+  &amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The text in the &lt;th&gt; tags are the headers and &lt;td&gt; tags are the data for the specified columns&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding the link to export excel on the Index page&lt;/p&gt;
+
+&lt;p&gt;   &lt;code&gt;&amp;lt;%= link_to 'Export XLS', url_for(:format =&amp;gt; 'xls') %&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;This will allow the data on index page to be exported in Excel Format&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>
     
-      Setting up Rhomobile with an Android Emulator &ndash;
+      Export to Excel in Rails 3 without a Gem &ndash;
     
     Ashish Upadhyay
   </title>
@@ -60,66 +60,73 @@
 
   <section class="content">
   <h1>
-    <a href="/posts/Setting-up-RHODES-with-an-Android-Emulator">Setting up Rhomobile with an Android Emulator</a>
+    <a href="/posts/Export-to-Excel-in-Rails-3-without-a-Gem">Export to Excel in Rails 3 without a Gem</a>
   </h1>
 
   <section class="byline">
-    February 11, 2012
+    November 30, 2011
   </section>
 
   <ul>
-<li><p>Installing Ruby. Please follow the sequence of commands given below to install ruby on ubuntu using RVM.</p>
+<li><p>Creating Demo project</p>
 
-<pre><code>  sudo apt-get install git  
-  sudo apt-get install curl  
-  bash -s stable &amp;lt;  $ rvm pkg install zlib  
-  rvm pkg install openssl  
-  rvm install ruby-1.8.7-p334  
-  rvm alias create default ruby-1.8.7-p334
+<pre><code>  rails new xcel_demo –d mysql
 </code></pre></li>
-<li><p>Download Android-sdk for linux<br/>
-      <a href="http://dl.google.com/android/android-sdk_r16-linux.tgz">Android SDK Download</a></p></li>
-<li><p>Download Android-ndk for linux<br/>
-      <a href="http://dl.google.com/android/ndk/android-ndk-r7-linux-x86.tar.bz2">Android NDK Download</a></p></li>
-<li><p>Extract both the zip files in two different folder&rsquo;s.</p></li>
-<li><p>Java is needed to be installed in the system.If not then download the Java SDK zip files from<br/>
-      <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u2-download-1377129.html">Java SDK 7 Download</a></p></li>
-<li><p>Open the terminal and install the rhodes gem.
-      <code> gem install rhodes  </code><br/>
-the installation of the gem will take time as the size of the gem is &lt; 50 MB</p></li>
-<li><p>After the gem installation ,type
-      <code>rhodes-setup</code>
-at the terminal .The screen should come up something like this :
-<img src="http://2.bp.blogspot.com/-uM0CgKEDFsw/TzZMJ6ijPmI/AAAAAAAAACE/q4_DxHJpnmE/s1600/Screenshot+at+2012-02-11+16:28:15.png" alt="Alt pik" /></p>
+<li><p>Creating a User model</p>
 
-<p>  Now type in the directories where you extracted the</p>
-
-<pre><code>  Java SDK    
-  Android SDK    
-  Android NDK   
+<pre><code>  rails g scaffold User name:string email:string content:string
 </code></pre></li>
-<li><p>Setting up the environment is complete.</p></li>
-</ul>
+<li><p>Add a MIME type in \config\initializers\mime_type.rb</p>
 
-
-<p><strong>Now we will generate a demo application using rhodes to test the emulator.</strong></p>
-
-<ul>
-<li><p>Setting up Android SDK to host an emulator of a specific android version.</p></li>
-<li><p>Go to the directory where you extracted the sdk .Then go into the tools folder in the sdk and click on a file name <strong>&ldquo;android&rdquo;</strong>.A window opens up : 3. Click on the checkbox Android 3.0 , this selects all the checkboxes in this group.Now click on install wait for a few minutes.</p></li>
-<li><p>Now open your terminal and generate a new rhodes application.</p>
-
-<pre><code> rhogen app Demo 
- cd Demo 5. 
-</code></pre>
-
-<p> Edit the built.yml file in any text editor to change the android version to 3.0 instead of default 2.1 and add an emulator name.</p></li>
-<li><p>Now go back to the terminal and type</p>
-
-<pre><code> rake run:android 
+<pre><code>  Mime::Type.register 'application/vnd.ms-excel', :xls
 </code></pre></li>
-<li><p>The android emulator will show up in a few minutes and load the rhomobile application . <br/>
-Now we can go forward designing the mobile application.</p></li>
+<li><p>Add a xls format output to the method in the Controller</p>
+
+<pre><code>  def index
+    @users = User.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xls
+      format.xml  { render :xml =&gt; @users }
+    end
+  end
+</code></pre></li>
+<li><p>Creating the view for the XLS</p></li>
+<li><p>Now create a view to render the xls file. Here as we have modified the index method we will create a view index.xls.erb for the same in the views for Users</p>
+
+<pre><code>  &lt;h1&gt;Listing users&lt;/h1&gt;
+
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;City&lt;/th&gt;
+      &lt;th&gt;Gender&lt;/th&gt;
+      &lt;th&gt;Phone&lt;/th&gt;
+      &lt;th&gt;Address&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+
+  &lt;% @users.each do |user| %&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;%= user.name %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= user.city %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= user.gender %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= user.phone %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= user.address %&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;% end %&gt;
+  &lt;/table&gt;
+
+  &lt;br /&gt;
+</code></pre></li>
+<li><p>The text in the <th> tags are the headers and <td> tags are the data for the specified columns</p></li>
+<li><p>Adding the link to export excel on the Index page</p>
+
+<p>   <code>&lt;%= link_to 'Export XLS', url_for(:format =&gt; 'xls') %&gt;</code></p></li>
+<li><p>This will allow the data on index page to be exported in Excel Format</p></li>
 </ul>
 
 
