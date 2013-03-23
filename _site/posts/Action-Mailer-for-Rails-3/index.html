@@ -61,30 +61,30 @@
     November 11, 2011
   </section>
 
-  <h2 id="toc_52">For rails 3</h2>
+  <h2>For rails 3</h2>
 
 <p>Action Mailer allows you to send email from your application using a mailer
 model and views.</p>
 
 <p>This tutorial is about how to send an email using gmail free service in Ruby on Rails 3 and above</div></p>
 
-<h3 id="toc_53">Creating Demo project</h3>
+<h3>Creating Demo project</h3>
 
 <p><code> rails new mail_demo –d mysql </code></p>
 
-<h3 id="toc_54">Creating a User model</h3>
+<h3>Creating a User model</h3>
 
 <p><code>rails g scaffold User name:string email:string content:string </code></p>
 
-<h3 id="toc_55">Creating a Mailer model</h3>
+<h3>Creating a Mailer model</h3>
 
 <p><code> rails g mailer user_mailer </code></p>
 
-<h3 id="toc_56">Setting up the development.rb for configuring application settings to</h3>
+<h3>Setting up the development.rb for configuring application settings to</h3>
 
 <p>access mail smtp server</p>
 
-<h4 id="toc_57">In development.rb</h4>
+<h4>In development.rb</h4>
 
 <blockquote>
 <pre>
@@ -107,11 +107,12 @@ config.action_mailer.raise_delivery_errors = true
 </pre>
 </blockquote>
 
+
 <p>Remember
 these are the basic settings needed to send mails from gmail ,other server may
 have different settings.</p>
 
-<h3 id="toc_58">Creating the mailer</h3>
+<h3>Creating the mailer</h3>
 
 <p>Now we will write the method in user_mailer model to send the mail .Remember in the mailer model  :</p>
 
@@ -131,7 +132,8 @@ end
 </pre>
 </blockquote>
 
-<h3 id="toc_59">Creating Email Template</h3>
+
+<h3>Creating Email Template</h3>
 
 <blockquote><pre><code> 
 "http://www.w3.org/TR/html4/loose.dtd"&gt;
@@ -143,6 +145,7 @@ Login:
 Image: 
 Content: 
 </code></pre></blockquote>
+
 
 <p>The method is referred to as deliver_send_email because rails appends it to a mailer method.Now
 run the server and try creating a new user . The email is sent to the address

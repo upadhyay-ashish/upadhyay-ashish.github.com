@@ -61,40 +61,42 @@
     August 10, 2012
   </section>
 
-  <h2 id="toc_60">Too many arguments while deployment</h2>
+  <h2>Too many arguments while deployment</h2>
 
 <p><strong>Issue : shell command failed with return code 33024</strong></p>
 
-<p>It&#39;s a <code>ruby + git clone + windows</code> issue.</p>
+<p>It&rsquo;s a <code>ruby + git clone + windows</code> issue.</p>
 
-<p>__ If we chain commands with while calling system(cmd) from ruby, chaining <code>git clone</code> with other commands is not fine. Git clone perceives the chained commands as its own continuation, i.e. as a destination directory, unless I run it from the command line. 
-__ </p>
+<p><strong> If we chain commands with while calling system(cmd) from ruby, chaining <code>git clone</code> with other commands is not fine. Git clone perceives the chained commands as its own continuation, i.e. as a destination directory, unless I run it from the command line.
+</strong></p>
 
-<p>As we couldn&#39;t find any references or solutions to this problem on the internet, I put a hack to capistrano code, so <code>git clone</code> is executed separately.</p>
+<p>As we couldn&rsquo;t find any references or solutions to this problem on the internet, I put a hack to capistrano code, so <code>git clone</code> is executed separately.</p>
 
-<p>In<br>
+<p>In<br/>
 <code>
-ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb 
+ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb
 </code></p>
 
-<p>** after the line 53 (cmd = cmd.split...) **
-add the following lines:
+<p><strong> after the line 53 (cmd = cmd.split&hellip;) </strong>
+add the following lines:</p>
+
 <blockquote>
 <pre>
 <code>
-if cmd =~ /\s&amp;&amp;\s/ &amp;&amp; cmd =~ /<sup>git\s+clone/</sup>
-   cmd1, cmd = cmd.split(&quot; &amp;&amp; &quot;, 2)
+if cmd =~ /\s\&\&\s/ && cmd =~ /^git\s+clone/
+   cmd1, cmd = cmd.split(" && ", 2)
    super(cmd1)
 end
 </code>
 </pre>
-</blockquote></p>
+</blockquote>
 
-<p>it checks if it&#39;s a chained command and the first command is &quot;git clone&quot;, and if such it executes it separately. It may not work for all possible cases.</p>
 
-<h3 id="toc_61">Also you can try using ubuntu from your local.</h3>
+<p>it checks if it&rsquo;s a chained command and the first command is &ldquo;git clone&rdquo;, and if such it executes it separately. It may not work for all possible cases.</p>
 
-<hr>
+<h3>Also you can try using ubuntu from your local.</h3>
+
+<hr />
 
 
   <!-- TODO: bio here -->
