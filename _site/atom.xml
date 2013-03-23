@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T20:38:19+05:30</updated>
+ <updated>2013-03-23T21:52:48+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -17,6 +17,8 @@
    <updated>2013-03-23T00:00:00+05:30</updated>
    <id>http://rorashish.blogspot.com/posts/Rubymotion</id>
    <content type="html">&lt;h2&gt;TCS RSS Feed Reader  123&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/upadhyay-ashish/TCSRssReader&quot;&gt;TCS RSS Feed&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This is an iOS application build using&lt;/p&gt;
 
@@ -98,6 +100,69 @@ end
 &lt;h3&gt;Also you can try using ubuntu from your local.&lt;/h3&gt;
 
 &lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Setting up RHODES with an Android Emulator</title>
+   <link href="http://rorashish.blogspot.com/posts/Setting-up-RHODES-with-an-Android-Emulator"/>
+   <updated>2012-02-11T00:00:00+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Setting-up-RHODES-with-an-Android-Emulator</id>
+   <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Installing Ruby. Please follow the sequence of commands given below to install ruby on ubuntu using RVM.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  sudo apt-get install git  
+  sudo apt-get install curl  
+  bash -s stable &amp;amp;lt;  $ rvm pkg install zlib  
+  rvm pkg install openssl  
+  rvm install ruby-1.8.7-p334  
+  rvm alias create default ruby-1.8.7-p334
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Download Android-sdk for linux&lt;br/&gt;
+      &lt;a href=&quot;http://dl.google.com/android/android-sdk_r16-linux.tgz&quot;&gt;Android SDK Download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Download Android-ndk for linux&lt;br/&gt;
+      &lt;a href=&quot;http://dl.google.com/android/ndk/android-ndk-r7-linux-x86.tar.bz2&quot;&gt;Android NDK Download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Extract both the zip files in two different folder&amp;rsquo;s.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Java is needed to be installed in the system.If not then download the Java SDK zip files from&lt;br/&gt;
+      &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u2-download-1377129.html&quot;&gt;Java SDK 7 Download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Open the terminal and install the rhodes gem.
+      &lt;code&gt; gem install rhodes  &lt;/code&gt;&lt;br/&gt;
+the installation of the gem will take time as the size of the gem is &amp;lt; 50 MB&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;After the gem installation ,type
+      &lt;code&gt;rhodes-setup&lt;/code&gt;
+at the terminal .The screen should come up something like this :
+&lt;img src=&quot;http://2.bp.blogspot.com/-uM0CgKEDFsw/TzZMJ6ijPmI/AAAAAAAAACE/q4_DxHJpnmE/s1600/Screenshot+at+2012-02-11+16:28:15.png&quot; alt=&quot;Alt pik&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  Now type in the directories where you extracted the&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Java SDK    
+  Android SDK    
+  Android NDK   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Setting up the environment is complete.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Now we will generate a demo application using rhodes to test the emulator.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Setting up Android SDK to host an emulator of a specific android version.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Go to the directory where you extracted the sdk .Then go into the tools folder in the sdk and click on a file name &lt;strong&gt;&amp;ldquo;android&amp;rdquo;&lt;/strong&gt;.A window opens up : 3. Click on the checkbox Android 3.0 , this selects all the checkboxes in this group.Now click on install wait for a few minutes.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now open your terminal and generate a new rhodes application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; rhogen app Demo 
+ cd Demo 5. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt; Edit the built.yml file in any text editor to change the android version to 3.0 instead of default 2.1 and add an emulator name.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now go back to the terminal and type&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; rake run:android 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The android emulator will show up in a few minutes and load the rhomobile application . &lt;br/&gt;
+Now we can go forward designing the mobile application.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 </content>
  </entry>
  
