@@ -1,0 +1,13 @@
+markdown: rdiscount
+pygments: true
+permalink: /posts/:title
+auto: true
+rdiscount:
+  extensions: [smart]
+
+name: Ashish Upadhyay
+url: http://zachholman.com
+description: A fantastic blog that is fantastic.
+twitter: _zapper320
+github: upadhyay-ashish
+gravatar_url: https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420

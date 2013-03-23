@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Ashish Upadhyay</title>
+ <link href="http://zachholman.com/atom.xml" rel="self"/>
+ <link href="http://zachholman.com/"/>
+ <updated>2013-03-23T18:05:50+05:30</updated>
+ <id>http://zachholman.com</id>
+ <author>
+   <name>Ashish Upadhyay</name>
+ </author>
+ 
+ 
+ <entry>
+   <title>Using Rubymotion for iOS application development</title>
+   <link href="http://zachholman.com/posts/left"/>
+   <updated>2013-03-23T00:00:00+05:30</updated>
+   <id>http://zachholman.com/posts/left</id>
+   <content type="html">&lt;h2&gt;TCS RSS Feed Reader&lt;/h2&gt;
+
+&lt;p&gt;This is an iOS application build using&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://rubymotion.com/&quot;&gt;Rubymotion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gembundler.com/&quot;&gt;Bundler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cocoapods.org/&quot;&gt;CocoaPods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/siuying/NanoStoreInMotion&quot;&gt;NanoStoreInMotion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;www.pixate.com&quot;&gt;Pixate iOS Styling Framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Running on Simulator/Device&lt;/h3&gt;
+
+&lt;p&gt;You will need Rubymotion installed on your Mac.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; Clone repo &lt;code&gt; git clone git@github.com:upadhyay-ashish/TCSRssReader.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; Bundle gems &lt;code&gt; bundle install &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; Setup cocoapods &lt;code&gt; pod setup &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; Setup Developer license reference in the Rakefile&lt;/li&gt;
+&lt;li&gt; To run on simulator &lt;code&gt; rake &lt;/code&gt; else to run on a Device &lt;code&gt; rake device &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; To create a distribution IPA &lt;code&gt; rake archive:distribution &lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;Screenshots&lt;/h3&gt;
+
+&lt;p&gt;  &lt;img src=&quot;/images/March-23-2013/icon.png&quot; alt=&quot;Alt Icon&quot; /&gt;  &lt;img src=&quot;/images/March-23-2013/menu.png&quot; alt=&quot;Alt Icon&quot; /&gt;&lt;br/&gt;
+  &lt;img src=&quot;/images/March-23-2013/events.png&quot; alt=&quot;Alt Icon&quot; /&gt;  &lt;img src=&quot;/images/March-23-2013/news.png&quot; alt=&quot;Alt Icon&quot; /&gt; &lt;br/&gt;
+  &lt;img src=&quot;/images/March-23-2013/press_releases.png&quot; alt=&quot;Alt Icon&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Suggestions ?&lt;/h3&gt;
+
+&lt;p&gt;Please log an issue &lt;a href=&quot;https://github.com/upadhyay-ashish/TCSRssReader/issues&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;ashish.upadhyaye@gmail.com&quot;&gt;ashish.upadhyaye@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>
