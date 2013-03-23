@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>
     
-      Not Found &ndash;
+      Installing RMagick with Imagemagic on Windows 7/Vista &ndash;
     
     Ashish Upadhyay
   </title>
@@ -59,9 +59,57 @@
   </section>
 
   <section class="content">
-  <h1>Not Found</h1>
+  <h1>
+    <a href="/posts/Installing-RMagick-with-Imagemagic-on-Windows-7">Installing RMagick with Imagemagic on Windows 7/Vista</a>
+  </h1>
 
-  <p>Sorry! Couldn't find that page. Bummer.</p>
+  <section class="byline">
+    August  9, 2012
+  </section>
+
+  <p>Working with Windows 7 64bit and Ruby 1.9.3.</p>
+
+<ul>
+<li><p>Install Ghostscript<br/>
+      <code>http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/9.05/gs905w32.exe</code></p></li>
+<li><p>Install Imagemagick<br/>
+Use the 32 bit version, 64bit is not working.<br/>
+<a href="http://www.imagemagick.org/download/binaries/ImageMagick-6.7.6-1-Q16-windows-dll.exe">Imagemagick</a></p>
+
+<pre><code>  Install dev headers (Check!)
+  Install into C:\opt\
+</code></pre></li>
+<li><p>Restart the console/cmd prompt/IDE/.. or just restart windows to make Imagemagick commands available</p></li>
+<li><p>Install rmagick</p></li>
+</ul>
+
+
+<blockquote><pre><code></code>
+    gem install rmagick --platform=ruby -- --with-opt-lib=C:/opt/ImageMagick-6.7.6-Q16/lib 
+    --with-opt-include=c:/opt/ImageMagick-6.7.6-Q16/include
+</pre></blockquote>
+
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="https://twitter.com/_zapper320" target="_blank">
+        <img src="https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a developer at TCS. <a href="https://twitter.com/_zapper320" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets. I take care to carefully craft each one. Or at least aim to make
+        you giggle. Or offended. One of those two&mdash; I haven't decided which yet.
+      </p>
+
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="_zapper320">Tweet</a>
+      <a href="http://twitter.com/_zapper320" class="twitter-follow-button" data-show-count="false">Follow @_zapper320</a>
+      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+    </section>
+  </section>
 </section>
 </body>
 

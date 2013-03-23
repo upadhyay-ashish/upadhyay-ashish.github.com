@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T22:12:39+05:30</updated>
+ <updated>2013-03-23T22:50:19+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -100,6 +100,36 @@ end
 &lt;h3&gt;Also you can try using ubuntu from your local.&lt;/h3&gt;
 
 &lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Installing RMagick with Imagemagic on Windows 7/Vista</title>
+   <link href="http://rorashish.blogspot.com/posts/Installing-RMagick-with-Imagemagic-on-Windows-7"/>
+   <updated>2012-08-09T14:00:18+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Installing-RMagick-with-Imagemagic-on-Windows-7</id>
+   <content type="html">&lt;p&gt;Working with Windows 7 64bit and Ruby 1.9.3.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Install Ghostscript&lt;br/&gt;
+      &lt;code&gt;http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/9.05/gs905w32.exe&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Install Imagemagick&lt;br/&gt;
+Use the 32 bit version, 64bit is not working.&lt;br/&gt;
+&lt;a href=&quot;http://www.imagemagick.org/download/binaries/ImageMagick-6.7.6-1-Q16-windows-dll.exe&quot;&gt;Imagemagick&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Install dev headers (Check!)
+  Install into C:\opt\
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Restart the console/cmd prompt/IDE/.. or just restart windows to make Imagemagick commands available&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Install rmagick&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt;&lt;/code&gt;
+    gem install rmagick --platform=ruby -- --with-opt-lib=C:/opt/ImageMagick-6.7.6-Q16/lib 
+    --with-opt-include=c:/opt/ImageMagick-6.7.6-Q16/include
+&lt;/pre&gt;&lt;/blockquote&gt;
+
 </content>
  </entry>
  
