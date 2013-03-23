@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>
     
-      Posts &ndash;
+      Cloning a specific GIT branch from a repository &ndash;
     
     Ashish Upadhyay
   </title>
@@ -58,61 +58,55 @@
       
   </section>
 
-  <!-- You can edit this whole page, remove it, or use it as basis for any non-post pages you have. -->
-<section class="content">
-  <h1>Ruby n Rubymotion blogs</h1>
+  <section class="content">
+  <h1>
+    <a href="/posts/Cloning-a-specific-GIT-branch-from-a-repository">Cloning a specific GIT branch from a repository</a>
+  </h1>
 
-  <p>This would be an excellent time to update this page and talk about yourself a bit.</p>
-</section>
+  <section class="byline">
+    October 22, 2012
+  </section>
 
-<section class="content">
-  <ul class="listing">
-    
-    <li>
-      <span>March 23, 2013</span> <a href="/posts/Rubymotion">Using Rubymotion for iOS application development</a>
-    </li>
-    
-    <li>
-      <span>December  8, 2012</span> <a href="/posts/Using-nested_forms-gem-%2B-dropbox-paperclip-%2B-twitter-bootstrap">Using nested_forms gem + dropbox-paperclip + twitter-bootstrap</a>
-    </li>
-    
-    <li>
-      <span>October 22, 2012</span> <a href="/posts/Cloning-a-specific-GIT-branch-from-a-repository">Cloning a specific GIT branch from a repository</a>
-    </li>
-    
-    <li>
-      <span>September 28, 2012</span> <a href="/posts/Migrating-code-from-SVN-to-GIT">Migrating code from SVN to GIT</a>
-    </li>
-    
-    <li>
-      <span>August 11, 2012</span> <a href="/posts/Fix-Readline-error-Ubuntu">Fix Readline error Ubuntu</a>
-    </li>
-    
-    <li>
-      <span>August 10, 2012</span> <a href="/posts/Capistrano">Capistrano</a>
-    </li>
-    
-    <li>
-      <span>August  9, 2012</span> <a href="/posts/Installing-RMagick-with-Imagemagic-on-Windows-7">Installing RMagick with Imagemagic on Windows 7/Vista</a>
-    </li>
-    
-    <li>
-      <span>June 13, 2012</span> <a href="/posts/Creating-a-native-iOS-application">Creating a native iOS application !</a>
-    </li>
-    
-    <li>
-      <span>February 11, 2012</span> <a href="/posts/Setting-up-RHODES-with-an-Android-Emulator">Setting up RHODES with an Android Emulator</a>
-    </li>
-    
-    <li>
-      <span>November 11, 2011</span> <a href="/posts/Action-Mailer-for-Rails-3">Action Mailer</a>
-    </li>
-    
-    <li>
-      <span>November 11, 2011</span> <a href="/posts/ActionMailer-2.3.9-Tutorial">Action Mailer 2.3.9</a>
-    </li>
-    
-  </ul>
+  <ul>
+<li><p>Clone the master branch</p>
+
+<pre><code>  git clone &lt;repo master&gt;
+</code></pre></li>
+<li><p>Clone the specific GIT branch</p>
+
+<pre><code>  git fetch origin +branchname:branchname
+</code></pre></li>
+<li><p>Switch to the branch</p>
+
+<pre><code>  git checkout branchname
+</code></pre></li>
+<li><p>Check the file difference between the master and the branch</p>
+
+<pre><code>  git diff --name-status master..sibos
+</code></pre></li>
+</ul>
+
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="https://twitter.com/_zapper320" target="_blank">
+        <img src="https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a developer at TCS. <a href="https://twitter.com/_zapper320" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets. I take care to carefully craft each one. Or at least aim to make
+        you giggle. Or offended. One of those two&mdash; I haven't decided which yet.
+      </p>
+
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="_zapper320">Tweet</a>
+      <a href="http://twitter.com/_zapper320" class="twitter-follow-button" data-show-count="false">Follow @_zapper320</a>
+      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+    </section>
+  </section>
 </section>
 </body>
 

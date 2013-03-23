@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>
+    
+      Using nested_forms gem + dropbox-paperclip + twitter-bootstrap &ndash;
+    
+    Ashish Upadhyay
+  </title>
+
+  <meta name="author" content="Ashish Upadhyay" />
+  <meta name="description" content="A fantastic blog that is fantastic." />
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link rel="stylesheet" href="/css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="/css/pygments.css" type="text/css" />
+  <link media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
+  <link media="only screen and (device-width: 768px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
+  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/application.js"></script>
+</head>
+
+<body>
+  <section class="sidebar">
+    <a href="/">
+      <img src="https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420?s=150" height="165" width="135" class="avatar" />
+    </a>
+
+    <section class="name">
+      <a href="/">
+        <span id="fname">Ashish</span>
+        <span id="lname">Upadhyay</span>
+      </a>
+    </section>
+
+    <section class="meta">
+      <a href="https://github.com/upadhyay-ashish" target="_blank"><img src="/images/github.png" /></a>
+      <a href="https://twitter.com/_zapper320" target="_blank"><img src="/images/twitter.png"></a>
+      <a href="/atom.xml"><img src="/images/rss.png" /></a>
+    </section>
+
+    <section class="sections">
+      <ul>
+        <li><a href="/about.html">about</a></li>
+        <li><a href="/">posts</a></li>
+      </ul>
+    </section>
+        <br /><br />
+        <span style="color:gray">
+          Tata Consultancy Services
+          Mumbai India
+        </span>
+      
+  </section>
+
+  <section class="content">
+  <h1>
+    <a href="/posts/Using-nested_forms-gem-%2B-dropbox-paperclip-%2B-twitter-bootstrap">Using nested_forms gem + dropbox-paperclip + twitter-bootstrap</a>
+  </h1>
+
+  <section class="byline">
+    December  8, 2012
+  </section>
+
+  <h4>This is a tutorial about using nested_forms gem with dropbox-paperclip plugin on Heroku to create a multiple photo upload albums interface with twitter bootstrap</h4>
+
+<p><a href="http://ashish-albums.herokuapp.com">Demo application</a></p>
+
+<ul>
+<li><p>Create a new rails app and add the gems to Gemfile.**</p>
+
+<pre><code>  paperclip
+  paperclip-dropbox
+  nested_form 
+</code></pre></li>
+<li><p>Create 3 models**</p>
+
+<pre><code>  rails g model User name:string  
+  rails g model Album name:string user_id:integer
+  rails g model Photo tags_name:string album_id:integer
+</code></pre></li>
+<li><p>Adding relationships among models</p>
+
+<h4>in app/models/user.rb</h4>
+
+<pre><code>  has_many :albums, :dependent =:destroy  
+  accepts_nested_attributes_for :albums  
+  attr_accessible :name, :albums_attributes  
+  validates_presence_of :name    
+  belongs_to :user   
+  has_many :photos, :dependent =:destroy  
+  accepts_nested_attributes_for :photos, :allow_destroy =true  
+  attr_accessible :name, :photos_attributes  
+  validates_presence_of :name   
+  belongs_to :album  
+  attr_accessible :avatar, :tags_name  
+  has_attached_file :avatar,  
+  :storage =:dropbox,  
+  :dropbox_credentials ="#{Rails.root}/config/dropbox.yml",  
+  :styles ={ :thumb ="100x100" },  
+  :dropbox_options ={  
+  :path =proc { |style| "#{style}/#{id}_#{avatar.original_filename}"}  
+  }  
+  validates_presence_of :avatar   
+</code></pre></li>
+<li><p>Adding a controller and a few actions**</p>
+
+<pre><code>  rails g controller Users 
+  add following code to the controller 
+  def index  
+   @users = User.all  
+  end  
+
+  def new  
+   @user = User.new  
+  end  
+
+  def create  
+   @user = User.new(params[:user])  
+   if @user.save  
+    redirect_to root_url  
+    else  
+     redirect_to root_url  
+   end  
+  end  
+
+  def show_albums  
+   @albums = Album.find(params[:id])  
+  end  
+
+  def destroy  
+   @user = User.find(params[:id])  
+   @user.destroy  
+   redirect_to root_url  
+  end 
+</code></pre></li>
+<li><p>Adding routes to routes.rb</p>
+
+<pre><code>  resources :users do  
+   member do  
+   get 'show_albums'  
+   end  
+  end  
+  root :to ='users#index'  
+</code></pre></li>
+<li><p>Creating views for forms and data show</p>
+
+<pre><code>  index.html.erb
+  new.html.erb
+  show_albums.html.erb
+  _album_fields.html.erb
+  _photo_fields.html.erb
+</code></pre></li>
+<li><p>Adding form html to views**</p>
+
+<h4>in index.html.erb :**</h4>
+
+<pre><code> &lt;%= link_to 'New User', new_user_path , :class =&gt; 'btn btn-medium btn-primary pull-right'%&gt;
+ &lt;table class="table table-striped"&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Name&lt;/th&gt;
+ &lt;th&gt;Album Names&lt;/th&gt;
+ &lt;!--th&gt;Tags&lt;/th--&gt;
+ &lt;th&gt;Destroy&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;% @users.each do |user| %&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;%= user.name %&gt;&lt;/td&gt;
+ &lt;td&gt;
+   &lt;% (user_albums_link user).each do |album_link| %&gt;
+     &lt;%= album_link.html_safe %&gt;
+   &lt;% end %&gt;
+  &lt;% thumbnails = show_photo_thumbnails(user.albums) if user.albums %&gt;
+  &lt;% if thumbnails %&gt;
+     &lt;% thumbnails.each do |thumb| %&gt;
+       &lt;%= thumb.html_safe  %&gt;
+     &lt;% end %&gt;
+  &lt;% end %&gt;
+ &lt;/td&gt;
+ &lt;!--td&gt;
+   &lt;%#= tags user.albums %&gt;
+ &lt;/td--&gt;
+ &lt;td&gt;
+     &lt;%= link_to t('.destroy', :default =&gt; t("helpers.links.destroy")),
+       user_path(user),
+       :method =&gt; :delete,
+       :data =&gt; { :confirm =&gt; t('.confirm', 
+       :default =&gt; t("helpers.links.confirm", :default =&gt; 'Are you sure?')) },
+       :class =&gt; 'btn btn-mini btn-danger' %&gt;
+ &lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;% end %&gt;
+ &lt;/table&gt;
+ &lt;br /&gt;
+</code></pre></li>
+<li><p>in new.html.erb</p>
+
+<pre><code>  &lt;%= nested_form_for @user, :html =&gt; { :multipart =&gt; true } do |f| %&gt;
+  &lt;div class="controls"&gt;
+    Username :
+    &lt;%= f.text_field :name, :class =&gt; 'text_field' %&gt;
+  &lt;/div&gt;
+  &lt;%= f.fields_for :albums %&gt;
+  &lt;%= f.link_to_add "Add an album", :albums %&gt;
+  &lt;br /&gt;
+  &lt;br /&gt;
+  &lt;div class="controls"&gt;
+    &lt;%= f.submit nil, :class =&gt; 'btn btn-primary' %&gt;
+  &lt;/div&gt;
+  &lt;% end %&gt;
+</code></pre></li>
+<li><p>in _album_fields.html.erb</p>
+
+<pre><code>  &lt;div class="controls"&gt;
+    Album Name :
+    &lt;%= f.text_field :name, :class =&gt; 'text_field' %&gt;
+    &lt;%= f.link_to_remove "Remove this album" %&gt;
+    &lt;%= f.fields_for :photos %&gt;
+      &lt;p&gt;
+      &lt;%= f.link_to_add "Add a photo", :photos %&gt;
+      &lt;/p&gt;
+  &lt;/div&gt;
+</code></pre></li>
+<li><p>in _photo_fields.html.erb</p>
+
+<pre><code>  &lt;div class="controls offset1"&gt;
+    File :
+    &lt;%= f.text_field :tags_name %&gt;
+    &lt;%= f.file_field :avatar %&gt;
+    &lt;%= f.link_to_remove "Remove this photo" %&gt;
+  &lt;/div&gt;
+</code></pre></li>
+<li><p>in show_albums.html.erb</p>
+
+<pre><code>  &lt;% thumbnails = get_photos(@albums) if @albums %&gt;
+   &lt;% if thumbnails %&gt;
+      &lt;% thumbnails.each do |thumb| %&gt;
+        &lt;%= thumb.html_safe  %&gt;
+      &lt;% end %&gt;
+   &lt;% end %&gt;
+   &lt;%= show_tags @albums %&gt;
+</code></pre></li>
+<li><p>Add dropbox.yml in config folder with following data :**</p>
+
+<pre><code>  app_key:    
+  app_secret:    
+  access_token:    
+  access_token_secret:    
+  user_id:
+</code></pre></li>
+<li><p>These variables are Environment variables in environments files.</p></li>
+<li><p>For detailed setup for paperclip-dropbox gem <a href="https://github.com/janko-m/paperclip-dropbox">paperclip-dropbox</a></p></li>
+<li><p>Setup Twitter Bootstrap **</p>
+
+<pre><code>  rails generate bootstrap:install less  
+  rails g bootstrap:layout application fixed**Step 10 : Run the application :**  
+  bundle  
+  rake db:create  
+  rake db:migrate  
+  rails s  
+</code></pre></li>
+</ul>
+
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="https://twitter.com/_zapper320" target="_blank">
+        <img src="https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a developer at TCS. <a href="https://twitter.com/_zapper320" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets. I take care to carefully craft each one. Or at least aim to make
+        you giggle. Or offended. One of those two&mdash; I haven't decided which yet.
+      </p>
+
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="_zapper320">Tweet</a>
+      <a href="http://twitter.com/_zapper320" class="twitter-follow-button" data-show-count="false">Follow @_zapper320</a>
+      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+    </section>
+  </section>
+</section>
+</body>
+
+</html>

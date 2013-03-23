@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T23:06:51+05:30</updated>
+ <updated>2013-03-23T23:24:57+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -58,6 +58,240 @@
 &lt;p&gt;&lt;a href=&quot;ashish.upadhyaye@gmail.com&quot;&gt;ashish.upadhyaye@gmail.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using nested_forms gem + dropbox-paperclip + twitter-bootstrap</title>
+   <link href="http://rorashish.blogspot.com/posts/Using-nested_forms-gem-%2B-dropbox-paperclip-%2B-twitter-bootstrap"/>
+   <updated>2012-12-08T13:55:52+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Using-nested_forms-gem-+-dropbox-paperclip-+-twitter-bootstrap</id>
+   <content type="html">&lt;h4&gt;This is a tutorial about using nested_forms gem with dropbox-paperclip plugin on Heroku to create a multiple photo upload albums interface with twitter bootstrap&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ashish-albums.herokuapp.com&quot;&gt;Demo application&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create a new rails app and add the gems to Gemfile.**&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  paperclip
+  paperclip-dropbox
+  nested_form 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create 3 models**&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  rails g model User name:string  
+  rails g model Album name:string user_id:integer
+  rails g model Photo tags_name:string album_id:integer
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding relationships among models&lt;/p&gt;
+
+&lt;h4&gt;in app/models/user.rb&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;  has_many :albums, :dependent =:destroy  
+  accepts_nested_attributes_for :albums  
+  attr_accessible :name, :albums_attributes  
+  validates_presence_of :name    
+  belongs_to :user   
+  has_many :photos, :dependent =:destroy  
+  accepts_nested_attributes_for :photos, :allow_destroy =true  
+  attr_accessible :name, :photos_attributes  
+  validates_presence_of :name   
+  belongs_to :album  
+  attr_accessible :avatar, :tags_name  
+  has_attached_file :avatar,  
+  :storage =:dropbox,  
+  :dropbox_credentials =&quot;#{Rails.root}/config/dropbox.yml&quot;,  
+  :styles ={ :thumb =&quot;100x100&quot; },  
+  :dropbox_options ={  
+  :path =proc { |style| &quot;#{style}/#{id}_#{avatar.original_filename}&quot;}  
+  }  
+  validates_presence_of :avatar   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding a controller and a few actions**&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  rails g controller Users 
+  add following code to the controller 
+  def index  
+   @users = User.all  
+  end  
+
+  def new  
+   @user = User.new  
+  end  
+
+  def create  
+   @user = User.new(params[:user])  
+   if @user.save  
+    redirect_to root_url  
+    else  
+     redirect_to root_url  
+   end  
+  end  
+
+  def show_albums  
+   @albums = Album.find(params[:id])  
+  end  
+
+  def destroy  
+   @user = User.find(params[:id])  
+   @user.destroy  
+   redirect_to root_url  
+  end 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding routes to routes.rb&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  resources :users do  
+   member do  
+   get 'show_albums'  
+   end  
+  end  
+  root :to ='users#index'  
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Creating views for forms and data show&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  index.html.erb
+  new.html.erb
+  show_albums.html.erb
+  _album_fields.html.erb
+  _photo_fields.html.erb
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding form html to views**&lt;/p&gt;
+
+&lt;h4&gt;in index.html.erb :**&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt; &amp;lt;%= link_to 'New User', new_user_path , :class =&amp;gt; 'btn btn-medium btn-primary pull-right'%&amp;gt;
+ &amp;lt;table class=&quot;table table-striped&quot;&amp;gt;
+ &amp;lt;tr&amp;gt;
+ &amp;lt;th&amp;gt;Name&amp;lt;/th&amp;gt;
+ &amp;lt;th&amp;gt;Album Names&amp;lt;/th&amp;gt;
+ &amp;lt;!--th&amp;gt;Tags&amp;lt;/th--&amp;gt;
+ &amp;lt;th&amp;gt;Destroy&amp;lt;/th&amp;gt;
+ &amp;lt;/tr&amp;gt;
+ &amp;lt;% @users.each do |user| %&amp;gt;
+ &amp;lt;tr&amp;gt;
+ &amp;lt;td&amp;gt;&amp;lt;%= user.name %&amp;gt;&amp;lt;/td&amp;gt;
+ &amp;lt;td&amp;gt;
+   &amp;lt;% (user_albums_link user).each do |album_link| %&amp;gt;
+     &amp;lt;%= album_link.html_safe %&amp;gt;
+   &amp;lt;% end %&amp;gt;
+  &amp;lt;% thumbnails = show_photo_thumbnails(user.albums) if user.albums %&amp;gt;
+  &amp;lt;% if thumbnails %&amp;gt;
+     &amp;lt;% thumbnails.each do |thumb| %&amp;gt;
+       &amp;lt;%= thumb.html_safe  %&amp;gt;
+     &amp;lt;% end %&amp;gt;
+  &amp;lt;% end %&amp;gt;
+ &amp;lt;/td&amp;gt;
+ &amp;lt;!--td&amp;gt;
+   &amp;lt;%#= tags user.albums %&amp;gt;
+ &amp;lt;/td--&amp;gt;
+ &amp;lt;td&amp;gt;
+     &amp;lt;%= link_to t('.destroy', :default =&amp;gt; t(&quot;helpers.links.destroy&quot;)),
+       user_path(user),
+       :method =&amp;gt; :delete,
+       :data =&amp;gt; { :confirm =&amp;gt; t('.confirm', 
+       :default =&amp;gt; t(&quot;helpers.links.confirm&quot;, :default =&amp;gt; 'Are you sure?')) },
+       :class =&amp;gt; 'btn btn-mini btn-danger' %&amp;gt;
+ &amp;lt;/td&amp;gt;
+ &amp;lt;/tr&amp;gt;
+ &amp;lt;% end %&amp;gt;
+ &amp;lt;/table&amp;gt;
+ &amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;in new.html.erb&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  &amp;lt;%= nested_form_for @user, :html =&amp;gt; { :multipart =&amp;gt; true } do |f| %&amp;gt;
+  &amp;lt;div class=&quot;controls&quot;&amp;gt;
+    Username :
+    &amp;lt;%= f.text_field :name, :class =&amp;gt; 'text_field' %&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;%= f.fields_for :albums %&amp;gt;
+  &amp;lt;%= f.link_to_add &quot;Add an album&quot;, :albums %&amp;gt;
+  &amp;lt;br /&amp;gt;
+  &amp;lt;br /&amp;gt;
+  &amp;lt;div class=&quot;controls&quot;&amp;gt;
+    &amp;lt;%= f.submit nil, :class =&amp;gt; 'btn btn-primary' %&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;% end %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;in _album_fields.html.erb&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  &amp;lt;div class=&quot;controls&quot;&amp;gt;
+    Album Name :
+    &amp;lt;%= f.text_field :name, :class =&amp;gt; 'text_field' %&amp;gt;
+    &amp;lt;%= f.link_to_remove &quot;Remove this album&quot; %&amp;gt;
+    &amp;lt;%= f.fields_for :photos %&amp;gt;
+      &amp;lt;p&amp;gt;
+      &amp;lt;%= f.link_to_add &quot;Add a photo&quot;, :photos %&amp;gt;
+      &amp;lt;/p&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;in _photo_fields.html.erb&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  &amp;lt;div class=&quot;controls offset1&quot;&amp;gt;
+    File :
+    &amp;lt;%= f.text_field :tags_name %&amp;gt;
+    &amp;lt;%= f.file_field :avatar %&amp;gt;
+    &amp;lt;%= f.link_to_remove &quot;Remove this photo&quot; %&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;in show_albums.html.erb&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  &amp;lt;% thumbnails = get_photos(@albums) if @albums %&amp;gt;
+   &amp;lt;% if thumbnails %&amp;gt;
+      &amp;lt;% thumbnails.each do |thumb| %&amp;gt;
+        &amp;lt;%= thumb.html_safe  %&amp;gt;
+      &amp;lt;% end %&amp;gt;
+   &amp;lt;% end %&amp;gt;
+   &amp;lt;%= show_tags @albums %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add dropbox.yml in config folder with following data :**&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  app_key:    
+  app_secret:    
+  access_token:    
+  access_token_secret:    
+  user_id:
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;These variables are Environment variables in environments files.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For detailed setup for paperclip-dropbox gem &lt;a href=&quot;https://github.com/janko-m/paperclip-dropbox&quot;&gt;paperclip-dropbox&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Setup Twitter Bootstrap **&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  rails generate bootstrap:install less  
+  rails g bootstrap:layout application fixed**Step 10 : Run the application :**  
+  bundle  
+  rake db:create  
+  rake db:migrate  
+  rails s  
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Cloning a specific GIT branch from a repository</title>
+   <link href="http://rorashish.blogspot.com/posts/Cloning-a-specific-GIT-branch-from-a-repository"/>
+   <updated>2012-10-22T13:45:13+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Cloning-a-specific-GIT-branch-from-a-repository</id>
+   <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Clone the master branch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  git clone &amp;lt;repo master&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Clone the specific GIT branch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  git fetch origin +branchname:branchname
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Switch to the branch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  git checkout branchname
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Check the file difference between the master and the branch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  git diff --name-status master..sibos
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 </content>
  </entry>
  
