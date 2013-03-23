@@ -29,7 +29,7 @@ This tutorial is about how to send an email using gmail free service in Ruby on 
 
 #### In development.rb
 
-<blockquote><pre><code>
+<pre><code>
 config.action_mailer.delivery_method = :smtp
 
 config.action_mailer.raise_delivery_errors = true
@@ -44,7 +44,8 @@ config.action_mailer.smtp_settings = {
  :user_name =your full username example xyz@gmail.com',
  :password ='password'
 }
-</code></pre></blockquote>
+
+</code></pre>
 
  
 Remember these are the basic settings needed to send mails from gmail ,other server may have different settings .
@@ -53,7 +54,7 @@ Remember these are the basic settings needed to send mails from gmail ,other ser
  
 Now we will write the method in user_mailer model to send the mail .Remember in the mailer model
 
-<blockquote><pre><code>
+<pre><code>
 def send_email(user)
  recipients user.emailÏ
  from "webmaster@example.com"
@@ -61,7 +62,8 @@ def send_email(user)
  part :content_type ="text/html",
  :body =render_message("registration_confirmation", :user =user)
 end
-</code></pre></blockquote>
+
+</code></pre>
 
 The from field can be your own or your domains email address. Please check if the from for field has invalid email the user will not be able to reply .
 
@@ -69,7 +71,7 @@ The from field can be your own or your domains email address. Please check if th
 
 Now we will create a view which would form a the email template .It is named as same as the method in the model user_mailer ie. Send_email.html.erb
 
-<blockquote><pre><code> 
+<pre><code> 
 "http://www.w3.org/TR/html4/loose.dtd"&gt;
 h3 { color: #f00; }
 ul { list-style: none; }
@@ -78,7 +80,8 @@ Name:
 Login: 
 Image: 
 Content: 
-</code></pre></blockquote>
+
+</code></pre>
 
 In the end add a line to the create method of the Users_controller
 

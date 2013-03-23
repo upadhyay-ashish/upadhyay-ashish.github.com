@@ -22,7 +22,7 @@ ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\d
 
 ** after the line 53 (cmd = cmd.split...) **
 add the following lines:
-<blockquote>
+
 <pre>
 <code>
 if cmd =~ /\s\&\&\s/ && cmd =~ /^git\s+clone/
@@ -31,7 +31,7 @@ if cmd =~ /\s\&\&\s/ && cmd =~ /^git\s+clone/
 end
 </code>
 </pre>
-</blockquote>
+
 
 it checks if it's a chained command and the first command is "git clone", and if such it executes it separately. It may not work for all possible cases.
 

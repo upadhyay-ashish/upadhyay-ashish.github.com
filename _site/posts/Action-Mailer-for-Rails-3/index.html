@@ -86,7 +86,6 @@ model and views.</p>
 
 <h4>In development.rb</h4>
 
-<blockquote>
 <pre>
 <code>
 config.action_mailer.delivery_method = :smtp
@@ -105,21 +104,17 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = true
 </code>
 </pre>
-</blockquote>
 
 
-<p>Remember
-these are the basic settings needed to send mails from gmail ,other server may
+<p>Remember these are the basic settings needed to send mails from gmail ,other server may
 have different settings.</p>
 
 <h3>Creating the mailer</h3>
 
 <p>Now we will write the method in user_mailer model to send the mail .Remember in the mailer model  :</p>
 
-<blockquote>
 <pre>
 <code>
-
 def send_email(user)
    recipients  user.email
    from        "webmaster@example.com"
@@ -127,15 +122,13 @@ def send_email(user)
    part :content_type => "text/html",
     :body => render_message("registration_confirmation", :user => user)
 end
-
 </code>
 </pre>
-</blockquote>
 
 
 <h3>Creating Email Template</h3>
 
-<blockquote><pre><code> 
+<pre><code> 
 "http://www.w3.org/TR/html4/loose.dtd"&gt;
 h3 { color: #f00; }
 ul { list-style: none; }
@@ -144,7 +137,8 @@ Name:
 Login: 
 Image: 
 Content: 
-</code></pre></blockquote>
+
+</code></pre>
 
 
 <p>The method is referred to as deliver_send_email because rails appends it to a mailer method.Now

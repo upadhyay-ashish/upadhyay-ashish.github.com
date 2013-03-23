@@ -30,7 +30,7 @@ This tutorial is about how to send an email using gmail free service in Ruby on 
 access mail smtp server
 
 #### In development.rb
-<blockquote>
+
 <pre>
 <code>
 config.action_mailer.delivery_method = :smtp
@@ -49,20 +49,14 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = true
 </code>
 </pre>
-</blockquote>
 
-Remember
-these are the basic settings needed to send mails from gmail ,other server may
+
+Remember these are the basic settings needed to send mails from gmail ,other server may
 have different settings.
-
 ### Creating the mailer
-
 Now we will write the method in user_mailer model to send the mail .Remember in the mailer model  :
-
-<blockquote>
 <pre>
 <code>
-
 def send_email(user)
    recipients  user.email
    from        "webmaster@example.com"
@@ -70,14 +64,12 @@ def send_email(user)
    part :content_type => "text/html",
     :body => render_message("registration_confirmation", :user => user)
 end
-
 </code>
 </pre>
-</blockquote>
 
 ### Creating Email Template
 
-<blockquote><pre><code> 
+<pre><code> 
 "http://www.w3.org/TR/html4/loose.dtd"&gt;
 h3 { color: #f00; }
 ul { list-style: none; }
@@ -86,7 +78,8 @@ Name:
 Login: 
 Image: 
 Content: 
-</code></pre></blockquote>
+
+</code></pre>
 
 The method is referred to as deliver_send_email because rails appends it to a mailer method.Now
 run the server and try creating a new user . The email is sent to the address

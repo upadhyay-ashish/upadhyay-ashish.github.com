@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T20:26:39+05:30</updated>
+ <updated>2013-03-23T20:38:19+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -83,7 +83,6 @@ ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\d
 &lt;p&gt;&lt;strong&gt; after the line 53 (cmd = cmd.split&amp;hellip;) &lt;/strong&gt;
 add the following lines:&lt;/p&gt;
 
-&lt;blockquote&gt;
 &lt;pre&gt;
 &lt;code&gt;
 if cmd =~ /\s\&amp;\&amp;\s/ &amp;&amp; cmd =~ /^git\s+clone/
@@ -92,7 +91,6 @@ if cmd =~ /\s\&amp;\&amp;\s/ &amp;&amp; cmd =~ /^git\s+clone/
 end
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;/blockquote&gt;
 
 
 &lt;p&gt;it checks if it&amp;rsquo;s a chained command and the first command is &amp;ldquo;git clone&amp;rdquo;, and if such it executes it separately. It may not work for all possible cases.&lt;/p&gt;
@@ -133,7 +131,6 @@ model and views.&lt;/p&gt;
 
 &lt;h4&gt;In development.rb&lt;/h4&gt;
 
-&lt;blockquote&gt;
 &lt;pre&gt;
 &lt;code&gt;
 config.action_mailer.delivery_method = :smtp
@@ -152,21 +149,17 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = true
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;/blockquote&gt;
 
 
-&lt;p&gt;Remember
-these are the basic settings needed to send mails from gmail ,other server may
+&lt;p&gt;Remember these are the basic settings needed to send mails from gmail ,other server may
 have different settings.&lt;/p&gt;
 
 &lt;h3&gt;Creating the mailer&lt;/h3&gt;
 
 &lt;p&gt;Now we will write the method in user_mailer model to send the mail .Remember in the mailer model  :&lt;/p&gt;
 
-&lt;blockquote&gt;
 &lt;pre&gt;
 &lt;code&gt;
-
 def send_email(user)
    recipients  user.email
    from        &quot;webmaster@example.com&quot;
@@ -174,15 +167,13 @@ def send_email(user)
    part :content_type =&gt; &quot;text/html&quot;,
     :body =&gt; render_message(&quot;registration_confirmation&quot;, :user =&gt; user)
 end
-
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;/blockquote&gt;
 
 
 &lt;h3&gt;Creating Email Template&lt;/h3&gt;
 
-&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt; 
+&lt;pre&gt;&lt;code&gt; 
 &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt;
 h3 { color: #f00; }
 ul { list-style: none; }
@@ -191,7 +182,8 @@ Name:
 Login: 
 Image: 
 Content: 
-&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;The method is referred to as deliver_send_email because rails appends it to a mailer method.Now
@@ -226,7 +218,7 @@ This tutorial is about how to send an email using gmail free service in Ruby on 
 
 &lt;h4&gt;In development.rb&lt;/h4&gt;
 
-&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt;
+&lt;pre&gt;&lt;code&gt;
 config.action_mailer.delivery_method = :smtp
 
 config.action_mailer.raise_delivery_errors = true
@@ -241,7 +233,8 @@ config.action_mailer.smtp_settings = {
  :user_name =your full username example xyz@gmail.com',
  :password ='password'
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Remember these are the basic settings needed to send mails from gmail ,other server may have different settings .&lt;/p&gt;
@@ -250,7 +243,7 @@ config.action_mailer.smtp_settings = {
 
 &lt;p&gt;Now we will write the method in user_mailer model to send the mail .Remember in the mailer model&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt;
+&lt;pre&gt;&lt;code&gt;
 def send_email(user)
  recipients user.emailÏ
  from &quot;webmaster@example.com&quot;
@@ -258,7 +251,8 @@ def send_email(user)
  part :content_type =&quot;text/html&quot;,
  :body =render_message(&quot;registration_confirmation&quot;, :user =user)
 end
-&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;The from field can be your own or your domains email address. Please check if the from for field has invalid email the user will not be able to reply .&lt;/p&gt;
@@ -267,7 +261,7 @@ end
 
 &lt;p&gt;Now we will create a view which would form a the email template .It is named as same as the method in the model user_mailer ie. Send_email.html.erb&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt; 
+&lt;pre&gt;&lt;code&gt; 
 &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt;
 h3 { color: #f00; }
 ul { list-style: none; }
@@ -276,7 +270,8 @@ Name:
 Login: 
 Image: 
 Content: 
-&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;In the end add a line to the create method of the Users_controller&lt;/p&gt;
