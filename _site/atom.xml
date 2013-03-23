@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T19:42:42+05:30</updated>
+ <updated>2013-03-23T20:19:09+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -16,9 +16,9 @@
    <link href="http://rorashish.blogspot.com/posts/Rubymotion"/>
    <updated>2013-03-23T00:00:00+05:30</updated>
    <id>http://rorashish.blogspot.com/posts/Rubymotion</id>
-   <content type="html">&lt;h2&gt;TCS RSS Feed Reader  123&lt;/h2&gt;
+   <content type="html">&lt;h2 id=&quot;toc_62&quot;&gt;TCS RSS Feed Reader  123&lt;/h2&gt;
 
-&lt;p&gt;This is an iOS application build using&lt;/p&gt;
+&lt;p&gt;This is an iOS application build using &lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://rubymotion.com/&quot;&gt;Rubymotion&lt;/a&gt;&lt;/li&gt;
@@ -28,34 +28,32 @@
 &lt;li&gt;&lt;a href=&quot;www.pixate.com&quot;&gt;Pixate iOS Styling Framework&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;Running on Simulator/Device&lt;/h3&gt;
+&lt;h3 id=&quot;toc_63&quot;&gt;Running on Simulator/Device&lt;/h3&gt;
 
 &lt;p&gt;You will need Rubymotion installed on your Mac.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt; Clone repo &lt;code&gt; git clone git@github.com:upadhyay-ashish/TCSRssReader.git&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; Bundle gems &lt;code&gt; bundle install &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; Setup cocoapods &lt;code&gt; pod setup &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; Setup Developer license reference in the Rakefile&lt;/li&gt;
-&lt;li&gt; To run on simulator &lt;code&gt; rake &lt;/code&gt; else to run on a Device &lt;code&gt; rake device &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; To create a distribution IPA &lt;code&gt; rake archive:distribution &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Clone repo &lt;code&gt; git clone &lt;a href=&quot;mailto:git@github.com&quot;&gt;git@github.com&lt;/a&gt;:upadhyay-ashish/TCSRssReader.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Bundle gems &lt;code&gt; bundle install &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Setup cocoapods &lt;code&gt; pod setup &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Setup Developer license reference in the Rakefile &lt;/li&gt;
+&lt;li&gt;To run on simulator &lt;code&gt; rake &lt;/code&gt; else to run on a Device &lt;code&gt; rake device &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;To create a distribution IPA &lt;code&gt; rake archive:distribution &lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;h3 id=&quot;toc_64&quot;&gt;Screenshots&lt;/h3&gt;
 
-&lt;h3&gt;Screenshots&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/March-23-2013/icon.png&quot; alt=&quot;Alt Icon&quot;&gt;  &lt;img src=&quot;/images/March-23-2013/menu.png&quot; alt=&quot;Alt Icon&quot;&gt;&lt;br&gt;
+  &lt;img src=&quot;/images/March-23-2013/events.png&quot; alt=&quot;Alt Icon&quot;&gt;  &lt;img src=&quot;/images/March-23-2013/news.png&quot; alt=&quot;Alt Icon&quot;&gt;&lt;br&gt;
+  &lt;img src=&quot;/images/March-23-2013/press_releases.png&quot; alt=&quot;Alt Icon&quot;&gt;  &lt;/p&gt;
 
-&lt;p&gt;  &lt;img src=&quot;/images/March-23-2013/icon.png&quot; alt=&quot;Alt Icon&quot; /&gt;  &lt;img src=&quot;/images/March-23-2013/menu.png&quot; alt=&quot;Alt Icon&quot; /&gt;&lt;br/&gt;
-  &lt;img src=&quot;/images/March-23-2013/events.png&quot; alt=&quot;Alt Icon&quot; /&gt;  &lt;img src=&quot;/images/March-23-2013/news.png&quot; alt=&quot;Alt Icon&quot; /&gt; &lt;br/&gt;
-  &lt;img src=&quot;/images/March-23-2013/press_releases.png&quot; alt=&quot;Alt Icon&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Suggestions ?&lt;/h3&gt;
+&lt;h3 id=&quot;toc_65&quot;&gt;Suggestions ?&lt;/h3&gt;
 
 &lt;p&gt;Please log an issue &lt;a href=&quot;https://github.com/upadhyay-ashish/TCSRssReader/issues&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;ashish.upadhyaye@gmail.com&quot;&gt;ashish.upadhyaye@gmail.com&lt;/a&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;hr&gt;
 </content>
  </entry>
  
@@ -64,42 +62,134 @@
    <link href="http://rorashish.blogspot.com/posts/Capistrano"/>
    <updated>2012-08-10T00:00:00+05:30</updated>
    <id>http://rorashish.blogspot.com/posts/Capistrano</id>
-   <content type="html">&lt;h2&gt;Too many arguments while deployment&lt;/h2&gt;
+   <content type="html">&lt;h2 id=&quot;toc_60&quot;&gt;Too many arguments while deployment&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Issue : shell command failed with return code 33024&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;It&amp;rsquo;s a &lt;code&gt;ruby + git clone + windows&lt;/code&gt; issue.&lt;/p&gt;
+&lt;p&gt;It&amp;#39;s a &lt;code&gt;ruby + git clone + windows&lt;/code&gt; issue.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt; If we chain commands with while calling system(cmd) from ruby, chaining &lt;code&gt;git clone&lt;/code&gt; with other commands is not fine. Git clone perceives the chained commands as its own continuation, i.e. as a destination directory, unless I run it from the command line.
-&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;__ If we chain commands with while calling system(cmd) from ruby, chaining &lt;code&gt;git clone&lt;/code&gt; with other commands is not fine. Git clone perceives the chained commands as its own continuation, i.e. as a destination directory, unless I run it from the command line. 
+__ &lt;/p&gt;
 
-&lt;p&gt;As we couldn&amp;rsquo;t find any references or solutions to this problem on the internet, I put a hack to capistrano code, so &lt;code&gt;git clone&lt;/code&gt; is executed separately.&lt;/p&gt;
+&lt;p&gt;As we couldn&amp;#39;t find any references or solutions to this problem on the internet, I put a hack to capistrano code, so &lt;code&gt;git clone&lt;/code&gt; is executed separately.&lt;/p&gt;
 
-&lt;p&gt;In&lt;br/&gt;
+&lt;p&gt;In&lt;br&gt;
 &lt;code&gt;
-ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb
+ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb 
 &lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt; after the line 53 (cmd = cmd.split&amp;hellip;) &lt;/strong&gt;
-add the following lines:&lt;/p&gt;
-
+&lt;p&gt;** after the line 53 (cmd = cmd.split...) **
+add the following lines:
 &lt;blockquote&gt;
 &lt;pre&gt;
 &lt;code&gt;
-if cmd =~ /\s\&amp;\&amp;\s/ &amp;&amp; cmd =~ /^git\s+clone/
-   cmd1, cmd = cmd.split(&quot; &amp;&amp; &quot;, 2)
+if cmd =~ /\s&amp;amp;&amp;amp;\s/ &amp;amp;&amp;amp; cmd =~ /&lt;sup&gt;git\s+clone/&lt;/sup&gt;
+   cmd1, cmd = cmd.split(&amp;quot; &amp;amp;&amp;amp; &amp;quot;, 2)
    super(cmd1)
 end
 &lt;/code&gt;
 &lt;/pre&gt;
+&lt;/blockquote&gt;&lt;/p&gt;
+
+&lt;p&gt;it checks if it&amp;#39;s a chained command and the first command is &amp;quot;git clone&amp;quot;, and if such it executes it separately. It may not work for all possible cases.&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_61&quot;&gt;Also you can try using ubuntu from your local.&lt;/h3&gt;
+
+&lt;hr&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Action Mailer</title>
+   <link href="http://rorashish.blogspot.com/posts/Action-Mailer-for-Rails-3"/>
+   <updated>2011-11-11T01:45:45+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Action-Mailer-for-Rails-3</id>
+   <content type="html">&lt;h2 id=&quot;toc_52&quot;&gt;For rails 3&lt;/h2&gt;
+
+&lt;p&gt;Action Mailer allows you to send email from your application using a mailer
+model and views.&lt;/p&gt;
+
+&lt;p&gt;This tutorial is about how to send an email using gmail free service in Ruby on Rails 3 and above&lt;/div&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_53&quot;&gt;Creating Demo project&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt; rails new mail_demo –d mysql &lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_54&quot;&gt;Creating a User model&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;rails g scaffold User name:string email:string content:string &lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_55&quot;&gt;Creating a Mailer model&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt; rails g mailer user_mailer &lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;toc_56&quot;&gt;Setting up the development.rb for configuring application settings to&lt;/h3&gt;
+
+&lt;p&gt;access mail smtp server&lt;/p&gt;
+
+&lt;h4 id=&quot;toc_57&quot;&gt;In development.rb&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+&lt;code&gt;
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+ :enable_starttls_auto =&amp;gt; true,
+ :address =&amp;gt; 'smtp.gmail.com',
+ :port =&amp;gt; 587,
+ :domain =&amp;gt; 'your.domain.com',
+ :authentication =&amp;gt; :login,
+ :content_type =&amp;gt; &quot;text/html&quot;,
+ :user_name =&amp;gt; 'username',
+ :password =&amp;gt; 'password'
+}
+
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
+&lt;/code&gt;
+&lt;/pre&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;Remember
+these are the basic settings needed to send mails from gmail ,other server may
+have different settings.&lt;/p&gt;
 
-&lt;p&gt;it checks if it&amp;rsquo;s a chained command and the first command is &amp;ldquo;git clone&amp;rdquo;, and if such it executes it separately. It may not work for all possible cases.&lt;/p&gt;
+&lt;h3 id=&quot;toc_58&quot;&gt;Creating the mailer&lt;/h3&gt;
 
-&lt;h3&gt;Also you can try using ubuntu from your local.&lt;/h3&gt;
+&lt;p&gt;Now we will write the method in user_mailer model to send the mail .Remember in the mailer model  :&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;
+&lt;code&gt;
+
+def send_email(user)
+   recipients  user.email
+   from        &quot;webmaster@example.com&quot;
+   subject     &quot;Thank you for Registering&quot;
+   part :content_type =&gt; &quot;text/html&quot;,
+    :body =&gt; render_message(&quot;registration_confirmation&quot;, :user =&gt; user)
+end
+
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;toc_59&quot;&gt;Creating Email Template&lt;/h3&gt;
+
+&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt; 
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt;
+h3 { color: #f00; }
+ul { list-style: none; }
+Your account signup details are below
+Name:  
+Login: 
+Image: 
+Content: 
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;The method is referred to as deliver_send_email because rails appends it to a mailer method.Now
+run the server and try creating a new user . The email is sent to the address
+the user enters for the new record.&lt;/p&gt;
 </content>
  </entry>
  
@@ -108,26 +198,26 @@ end
    <link href="http://rorashish.blogspot.com/posts/ActionMailer-2.3.9-Tutorial"/>
    <updated>2011-11-11T01:35:14+05:30</updated>
    <id>http://rorashish.blogspot.com/posts/ActionMailer-2.3.9-Tutorial</id>
-   <content type="html">&lt;h1&gt;Easy email delivery and testing&lt;/h1&gt;
+   <content type="html">&lt;h1 id=&quot;toc_44&quot;&gt;Easy email delivery and testing&lt;/h1&gt;
 
-&lt;p&gt;Action Mailer allows you to send email from your application using a mailer model and views.&lt;br/&gt;
+&lt;p&gt;Action Mailer allows you to send email from your application using a mailer model and views.&lt;br&gt;
 This tutorial is about how to send an email using gmail free service in Ruby on Rails 2.3.9, for versions higher than this refer rails guides .&lt;/p&gt;
 
-&lt;h3&gt;Creating Demo project&lt;/h3&gt;
+&lt;h3 id=&quot;toc_45&quot;&gt;Creating Demo project&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;rails mail_demo –d mysql&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3&gt;Creating a User model&lt;/h3&gt;
+&lt;h3 id=&quot;toc_46&quot;&gt;Creating a User model&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;ruby script/generate scaffold User name:string email:string content:string &lt;/code&gt;&lt;/p&gt;
 
-&lt;h3&gt;Creating a Mailer model&lt;/h3&gt;
+&lt;h3 id=&quot;toc_47&quot;&gt;Creating a Mailer model&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;ruby script/generate mailer user_mailer&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3&gt;Setting up the development.rb for configuring application settings to access mail smtp server&lt;/h3&gt;
+&lt;h3 id=&quot;toc_48&quot;&gt;Setting up the development.rb for configuring application settings to access mail smtp server&lt;/h3&gt;
 
-&lt;h4&gt;In development.rb&lt;/h4&gt;
+&lt;h4 id=&quot;toc_49&quot;&gt;In development.rb&lt;/h4&gt;
 
 &lt;blockquote&gt;&lt;pre&gt;&lt;code&gt;
 config.action_mailer.delivery_method = :smtp
@@ -146,10 +236,9 @@ config.action_mailer.smtp_settings = {
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
 
-
 &lt;p&gt;Remember these are the basic settings needed to send mails from gmail ,other server may have different settings .&lt;/p&gt;
 
-&lt;h3&gt;Creating the mailer&lt;/h3&gt;
+&lt;h3 id=&quot;toc_50&quot;&gt;Creating the mailer&lt;/h3&gt;
 
 &lt;p&gt;Now we will write the method in user_mailer model to send the mail .Remember in the mailer model&lt;/p&gt;
 
@@ -163,10 +252,9 @@ def send_email(user)
 end
 &lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
 
-
 &lt;p&gt;The from field can be your own or your domains email address. Please check if the from for field has invalid email the user will not be able to reply .&lt;/p&gt;
 
-&lt;h3&gt;Creating Email Template&lt;/h3&gt;
+&lt;h3 id=&quot;toc_51&quot;&gt;Creating Email Template&lt;/h3&gt;
 
 &lt;p&gt;Now we will create a view which would form a the email template .It is named as same as the method in the model user_mailer ie. Send_email.html.erb&lt;/p&gt;
 
@@ -181,14 +269,13 @@ Image:
 Content: 
 &lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
 
-
 &lt;p&gt;In the end add a line to the create method of the Users_controller&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;UserMailer.deliver_send_email(@user)&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;The method is referred to as deliver_send_email because rails appends it to a mailer method.&lt;/p&gt;
 
-&lt;p&gt;Now run the server and try creating a new user. The email is sent to the address the user enters for the new record.&lt;/p&gt;
+&lt;p&gt;Now run the server and try creating a new user. The email is sent to the address the user enters for the new record.  &lt;/p&gt;
 </content>
  </entry>
  
