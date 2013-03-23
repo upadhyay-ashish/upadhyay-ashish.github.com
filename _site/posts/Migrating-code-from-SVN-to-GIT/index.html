@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>
+    
+      Migrating code from SVN to GIT &ndash;
+    
+    Ashish Upadhyay
+  </title>
+
+  <meta name="author" content="Ashish Upadhyay" />
+  <meta name="description" content="A fantastic blog that is fantastic." />
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link rel="stylesheet" href="/css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="/css/pygments.css" type="text/css" />
+  <link media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
+  <link media="only screen and (device-width: 768px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
+  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/application.js"></script>
+</head>
+
+<body>
+  <section class="sidebar">
+    <a href="/">
+      <img src="https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420?s=150" height="165" width="135" class="avatar" />
+    </a>
+
+    <section class="name">
+      <a href="/">
+        <span id="fname">Ashish</span>
+        <span id="lname">Upadhyay</span>
+      </a>
+    </section>
+
+    <section class="meta">
+      <a href="https://github.com/upadhyay-ashish" target="_blank"><img src="/images/github.png" /></a>
+      <a href="https://twitter.com/_zapper320" target="_blank"><img src="/images/twitter.png"></a>
+      <a href="/atom.xml"><img src="/images/rss.png" /></a>
+    </section>
+
+    <section class="sections">
+      <ul>
+        <li><a href="/about.html">about</a></li>
+        <li><a href="/">posts</a></li>
+      </ul>
+    </section>
+        <br /><br />
+        <span style="color:gray">
+          Tata Consultancy Services
+          Mumbai India
+        </span>
+      
+  </section>
+
+  <section class="content">
+  <h1>
+    <a href="/posts/Migrating-code-from-SVN-to-GIT">Migrating code from SVN to GIT</a>
+  </h1>
+
+  <section class="byline">
+    September 28, 2012
+  </section>
+
+  <ul>
+<li><p>Install <code>git-svn</code> on ubuntu or linux</p>
+
+<pre><code>  git-svn clone &lt;svn repo link&gt;  my_project  
+</code></pre></li>
+<li><p>You need to do a bit of post-import cleanup. For one thing, you should clean up the weird references that git svn set up. First you’ll move the tags so they’re actual tags rather than strange remote branches, and then you’ll move the rest of the branches so they’re local.<br/>
+To move the tags to be proper Git tags, run</p>
+
+<pre><code>  cp -Rf .git/refs/remotes/tags/* .git/refs/tags/  
+  rm -Rf .git/refs/remotes/tags  
+</code></pre></li>
+<li><p>This takes the references that were remote branches that started with tag/ and makes them real (lightweight) tags.
+Next, move the rest of the references under refs/remotes to be local branches:</p>
+
+<pre><code>  cp -Rf .git/refs/remotes/* .git/refs/heads/  
+  rm -Rf .git/refs/remotes  
+</code></pre></li>
+<li><p>Now all the old branches are real Git branches and all the old tags are real Git tags. The last thing to do is add your new Git server as a remote and push to it. Here is an example of adding your server as a remote:</p>
+
+<pre><code>  git remote add origin git@my-git-server:myrepository.git  
+</code></pre></li>
+<li><p>Because you want all your branches and tags to go up, you can now run this</p>
+
+<pre><code>  git push origin --all  
+</code></pre></li>
+</ul>
+
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="https://twitter.com/_zapper320" target="_blank">
+        <img src="https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a developer at TCS. <a href="https://twitter.com/_zapper320" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets. I take care to carefully craft each one. Or at least aim to make
+        you giggle. Or offended. One of those two&mdash; I haven't decided which yet.
+      </p>
+
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="_zapper320">Tweet</a>
+      <a href="http://twitter.com/_zapper320" class="twitter-follow-button" data-show-count="false">Follow @_zapper320</a>
+      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+    </section>
+  </section>
+</section>
+</body>
+
+</html>
