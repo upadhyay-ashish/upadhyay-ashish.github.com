@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Ashish Upadhyay</title>
- <link href="http://zachholman.com/atom.xml" rel="self"/>
- <link href="http://zachholman.com/"/>
- <updated>2013-03-23T18:05:50+05:30</updated>
- <id>http://zachholman.com</id>
+ <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
+ <link href="http://rorashish.blogspot.com/"/>
+ <updated>2013-03-23T18:26:24+05:30</updated>
+ <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
  </author>
@@ -13,9 +13,9 @@
  
  <entry>
    <title>Using Rubymotion for iOS application development</title>
-   <link href="http://zachholman.com/posts/left"/>
+   <link href="http://rorashish.blogspot.com/posts/left"/>
    <updated>2013-03-23T00:00:00+05:30</updated>
-   <id>http://zachholman.com/posts/left</id>
+   <id>http://rorashish.blogspot.com/posts/left</id>
    <content type="html">&lt;h2&gt;TCS RSS Feed Reader&lt;/h2&gt;
 
 &lt;p&gt;This is an iOS application build using&lt;/p&gt;
