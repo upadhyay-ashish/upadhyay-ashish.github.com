@@ -1,0 +1,98 @@
+---           
+layout: post
+title: Installing Ruby on Mac OS
+date: 2012-06-13 14:26:29 UTC
+updated: 2012-06-13 14:26:29 UTC
+comments: false
+categories: ruby on rails rvm mac ruby rvm ruby mac ruby on rails mac os mac rvm install ruby on mac os ruby on mac os
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<h3 style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">STEP 1 Installing XCode</span></h3>
+<hr style="font-family: &quot;Trebuchet MS&quot;,sans-serif;" />
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Please install <code>XCode + Developer Tools</code> from the App Center.<br />
+XCode is needed to install the Developer tools used in compilation of the Ruby packages for installation on the system.</span></div>
+<h3 style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">STEP 2 Install RVM</span></h3>
+<hr style="font-family: &quot;Trebuchet MS&quot;,sans-serif;" />
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Install RVM using the command </span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li><span style="font-size: small;"><code>curl -L get.rvm.io | bash -s stable</code></span></li>
+</ul>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">This will install RVM on your system.<br />
+Please close and open the terminal again to load RVM.<br />
+To verify the RVM installation , open Terminal and type   </span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li>  <span style="font-size: small;"><code>rvm requirements</code></span>
+</li>
+</ul>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">This will show a help doc.  </span></div>
+<h3 style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Step 3  Installing required RVM packages before installing Ruby</span></h3>
+<hr style="font-family: &quot;Trebuchet MS&quot;,sans-serif;" />
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Open Terminal and run the below mentioned commands one after the another   </span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li><span style="font-size: small;"><code>rvm pkg install zlib</code></span></li>
+<li><span style="font-size: small;"><code>rvm pkg install openssl</code></span></li>
+<li><span style="font-size: small;"><code>rvm pkg install iconv</code></span></li>
+<li><span style="font-size: small;"><code>rvm pkg install readline</code></span></li>
+<li><span style="font-size: small;"><code>rvm pkg install autoconf</code></span></li>
+</ul>
+<h3 style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Step 4  Installing Ruby</span></h3>
+<hr style="font-family: &quot;Trebuchet MS&quot;,sans-serif;" />
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Open the Terminal and type the following command </span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li><span style="font-size: small;"><code>rvm install 1.8.7 --with-gcc=clang</code></span></li>
+</ul>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Here 1.8.7 reflects the Ruby version 1.8.7 and the latest patch,
+ so to install any specific version or path you specify it by altering 
+the above mentioned command eg.</span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li><span style="font-size: small;"><code>rvm install 1.8.7-p334 --with-gcc=clang</code></span></li>
+<li><span style="font-size: small;"><code>rvm install 1.9.3 -C --with-gcc=clang</code></span></li>
+</ul>
+<h3 style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Step 5  Verify the installation</span></h3>
+<hr style="font-family: &quot;Trebuchet MS&quot;,sans-serif;" />
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">Open a new Terminal window and type  </span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li>
+<span style="font-size: small;"><code>rvm list</code>
+This will display the list of the different rubies installed on the system.<br />
+To use a specific Ruby version use the following command </span></li>
+<li>
+<span style="font-size: small;"><code>rvm use 1.8.7</code></span> </li>
+<li><span style="font-size: small;"><code>rvm use 1.8.7-p334</code></span></li>
+<li>
+<span style="font-size: small;"><code>rvm use 1.9.3</code>
+To make a Ruby version default for the system use the command </span></li>
+<li><span style="font-size: small;"><code>rvm alias create default 1.8.7</code></span></li>
+<li><span style="font-size: small;"><code>rvm alias create default 1.8.7-p334</code></span></li>
+<li>
+<span style="font-size: small;"><code>rvm alias create default 1.9.3</code></span>
+</li>
+</ul>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">This Ruby version will be the default version of Ruby on the 
+system , to change to other versions of Ruby use the above mentioned 
+commands.<br />
+To use default incase of switching use    </span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li><span style="font-size: small;"><code>rvm use default</code></span></li>
+</ul>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: small;">To remove RVM from the system use the command </span></div>
+<ul style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<li><span style="font-size: small;"><code>rvm implode</code></span></li>
+</ul>
+</div><img src="http://feeds.feedburner.com/~r/blogspot/GMijy/~4/wvJfK5aLM2Q" height="1" width="1"/>

@@ -1,0 +1,129 @@
+---           
+layout: post
+title: Creating a native iOS application !
+date: 2012-06-13 14:17:34 UTC
+updated: 2012-06-13 14:17:34 UTC
+comments: false
+categories: ios app html5 native ios app Phonegap apple application natiive ios app ios html phonegap app ios native application
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 1 Installing XCode on the system</span></h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Download and install <code>XCode</code> from the App Center alongwith the <code>Developer Tools</code></span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 2 Download the Phonegap SDK</span></h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Download and unzip the Phonegap SDK.</span></li>
+<li><span style="font-size: small;">Now navigate to the <code>iOS directory</code> in the extracted source and run the <code>Cordova-1.7.0.dmg</code> and install it.</span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 3 Creating a XCode Project</span></h3>
+<div style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<span style="font-size: small;">Run <code>XCode</code> and create a new Project</span></div>
+<div style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<span style="font-size: small;">Select the template </span></div>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<li><span style="font-size: small;"><code>Cordova-based Application</code></span></li>
+</ul>
+<div style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<span style="font-size: small;">This will create the a new project and include the neccesary Phonegap API Files.</span></div>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 4 Changing the default compiler</span></h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Click on the application name and select 
+<code>BUILD SETTINGS</code> 
+tab in the center pane</span></li>
+<li><span style="font-size: small;">Change the compiler in the 
+<code>BUILD OPTIONS</code> from 
+<code>APPLE LLVM COMPILER</code> 
+to 
+<code>LLVM GCC</code></span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 5 Build and Run the Project</span></h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Click on the left top of the XCode window selecting the default device as iPad/iPhone
+Now run the Project.
+This would invoke the simulator and run the application on it.</span></li>
+<li><span style="font-size: small;">Once the application runs a error will Popup stating the <code>index.html</code> is not found.
+Close the simulator and return back to the XCode project window.</span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 6 Include <code>www</code> folder in the project to start with application development</span></h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Right click the project name and select <code>Show in Finder</code></span></li>
+<li><span style="font-size: small;">Drag the <code>www</code> folder from the <code>Finder</code> to the <code>Project</code></span></li>
+<li><span style="font-size: small;">A window pop's up , select to create references to the files.</span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 7 Again <code>BUILD &amp; RUN</code></span>
+</h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Now again build and run the project in an iPad/iPhone simulatore</span></li>
+<li><span style="font-size: small;">This time it would show up the <code>index.html</code> which is located in the <code>www</code> folder.
+Also it would show up the <code>Dialog</code> stating that Phonegap was successfully integrated in the application</span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 8 Download JQuery Mobile bundle</span></h3>
+<div style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<span style="font-size: small;">Download the latest build of JQuery Mobile from  <a href="http://jquerymobile.com/">http://jquerymobile.com/</a>
+Unzip the contents and add the files in the <code>www</code> folder categorizing the folders as </span></div>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<li><span style="font-size: small;"><code>javascripts</code></span></li>
+<li><span style="font-size: small;"><code>stylesheets</code></span></li>
+<li><span style="font-size: small;">`images'</span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 9 Including the JQuery mobile in the application</span></h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Open <code>index.html</code> and create references to the javascript and css files located in the <code>www</code> folder using the html tags</span></li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 10</span></h3>
+<div style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<span style="font-size: small;">Add a few lines of HTML to the index page and use the JQuery classes 
+and the Phonegap api function calls to implement the features of the 
+native application as desired    </span></div>
+<div style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<span style="font-size: small;">More Documentation available at   </span></div>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+<li>
+<span style="font-size: small;"><b>JQuery Mobile</b> <a href="http://jquerymobile.com/demos/1.1.0/">http://jquerymobile.com/demos/1.1.0/</a></span>
+</li>
+<li>
+<span style="font-size: small;"><b>Phonegap</b> <a href="http://docs.phonegap.com/en/1.8.0/index.html">http://docs.phonegap.com/en/1.8.0/index.html</a></span>
+</li>
+</ul>
+<h3 style="font-family: Georgia,&quot;Times New Roman&quot;,serif;">
+
+<span style="font-size: small;">
+Step 11 * not tested though</span></h3>
+<ul style="font-family: Georgia,&quot;Times New Roman&quot;,serif; text-align: left;">
+<li><span style="font-size: small;">Once the application is complete or for on Device testing a <code>Apple's Developer License</code> is required to sign the applications.</span></li>
+<li><span style="font-size: small;">After signing it , push the application to <code>PhoneGap Build</code> <a href="https://build.phonegap.com/">https://build.phonegap.com/</a>.</span></li>
+<li><span style="font-size: small;">Download the build package and deploy to th Device.</span></li>
+</ul>
+</div><img src="http://feeds.feedburner.com/~r/blogspot/GMijy/~4/WZpbXuKKlkg" height="1" width="1"/>

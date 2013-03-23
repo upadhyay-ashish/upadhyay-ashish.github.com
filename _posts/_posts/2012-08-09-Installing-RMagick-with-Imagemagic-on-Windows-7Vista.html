@@ -1,0 +1,42 @@
+---           
+layout: post
+title: Installing RMagick with Imagemagic on Windows 7/Vista
+date: 2012-08-09 08:30:18 UTC
+updated: 2012-08-09 08:30:18 UTC
+comments: false
+categories: rails rmagic imagemagick rmagick
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div class="body" style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<div class="formatted-content">
+<div class="content-body markdown-body markdown-format">
+From : <a href="https://github.com/rmagick/rmagick/issues/27%20" target="_blank">https://github.com/rmagick/rmagick/issues/27 </a><br />
+Thanks to :&nbsp; <a href="https://github.com/wingfire">https://github.com/wingfire</a><br />
+<b><u><br /></u></b>
+<b><u>Working with Windows 7 64bit and Ruby 1.9.3.</u></b><br />
+<br />
+1. Install Ghostscript<br /><a href="http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/9.05/gs905w32.exe">http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/9.05/gs905w32.exe</a></div>
+<div class="content-body markdown-body markdown-format">
+<br />2. Install Imagemagick<br />
+Use the 32 bit version, 64bit is not working.<br /><a href="http://www.imagemagick.org/download/binaries/ImageMagick-6.7.6-1-Q16-windows-dll.exe">http://www.imagemagick.org/download/binaries/ImageMagick-6.7.6-1-Q16-windows-dll.exe</a> (2012-03-22)<br />
+Install dev headers (Check!)<br />
+Install into C:\opt\</div>
+<div class="content-body markdown-body markdown-format">
+<br />
+3. Restart the console/cmd prompt/IDE/.. or just restart windows to make Imagemagick commands available </div>
+<div class="content-body markdown-body markdown-format">
+<br />4. Install rmagick<br />
+
+gem install rmagick --platform=ruby -- 
+--with-opt-lib=C:/opt/ImageMagick-6.7.6-Q16/lib 
+--with-opt-include=c:/opt/ImageMagick-6.7.6-Q16/include<ol>
+
+
+
+
+</ol>
+</div>
+</div>
+</div>
+</div><img src="http://feeds.feedburner.com/~r/blogspot/GMijy/~4/zc4elQidRes" height="1" width="1"/>

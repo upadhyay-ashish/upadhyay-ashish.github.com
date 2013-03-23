@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T18:26:24+05:30</updated>
+ <updated>2013-03-23T19:42:42+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -13,10 +13,10 @@
  
  <entry>
    <title>Using Rubymotion for iOS application development</title>
-   <link href="http://rorashish.blogspot.com/posts/left"/>
+   <link href="http://rorashish.blogspot.com/posts/Rubymotion"/>
    <updated>2013-03-23T00:00:00+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/left</id>
-   <content type="html">&lt;h2&gt;TCS RSS Feed Reader&lt;/h2&gt;
+   <id>http://rorashish.blogspot.com/posts/Rubymotion</id>
+   <content type="html">&lt;h2&gt;TCS RSS Feed Reader  123&lt;/h2&gt;
 
 &lt;p&gt;This is an iOS application build using&lt;/p&gt;
 
@@ -56,6 +56,139 @@
 &lt;p&gt;&lt;a href=&quot;ashish.upadhyaye@gmail.com&quot;&gt;ashish.upadhyaye@gmail.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Capistrano</title>
+   <link href="http://rorashish.blogspot.com/posts/Capistrano"/>
+   <updated>2012-08-10T00:00:00+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Capistrano</id>
+   <content type="html">&lt;h2&gt;Too many arguments while deployment&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Issue : shell command failed with return code 33024&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a &lt;code&gt;ruby + git clone + windows&lt;/code&gt; issue.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; If we chain commands with while calling system(cmd) from ruby, chaining &lt;code&gt;git clone&lt;/code&gt; with other commands is not fine. Git clone perceives the chained commands as its own continuation, i.e. as a destination directory, unless I run it from the command line.
+&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As we couldn&amp;rsquo;t find any references or solutions to this problem on the internet, I put a hack to capistrano code, so &lt;code&gt;git clone&lt;/code&gt; is executed separately.&lt;/p&gt;
+
+&lt;p&gt;In&lt;br/&gt;
+&lt;code&gt;
+ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt; after the line 53 (cmd = cmd.split&amp;hellip;) &lt;/strong&gt;
+add the following lines:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+&lt;code&gt;
+if cmd =~ /\s\&amp;\&amp;\s/ &amp;&amp; cmd =~ /^git\s+clone/
+   cmd1, cmd = cmd.split(&quot; &amp;&amp; &quot;, 2)
+   super(cmd1)
+end
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+
+&lt;p&gt;it checks if it&amp;rsquo;s a chained command and the first command is &amp;ldquo;git clone&amp;rdquo;, and if such it executes it separately. It may not work for all possible cases.&lt;/p&gt;
+
+&lt;h3&gt;Also you can try using ubuntu from your local.&lt;/h3&gt;
+
+&lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Action Mailer 2.3.9</title>
+   <link href="http://rorashish.blogspot.com/posts/ActionMailer-2.3.9-Tutorial"/>
+   <updated>2011-11-11T01:35:14+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/ActionMailer-2.3.9-Tutorial</id>
+   <content type="html">&lt;h1&gt;Easy email delivery and testing&lt;/h1&gt;
+
+&lt;p&gt;Action Mailer allows you to send email from your application using a mailer model and views.&lt;br/&gt;
+This tutorial is about how to send an email using gmail free service in Ruby on Rails 2.3.9, for versions higher than this refer rails guides .&lt;/p&gt;
+
+&lt;h3&gt;Creating Demo project&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;rails mail_demo –d mysql&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Creating a User model&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;ruby script/generate scaffold User name:string email:string content:string &lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Creating a Mailer model&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;ruby script/generate mailer user_mailer&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Setting up the development.rb for configuring application settings to access mail smtp server&lt;/h3&gt;
+
+&lt;h4&gt;In development.rb&lt;/h4&gt;
+
+&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt;
+config.action_mailer.delivery_method = :smtp
+
+config.action_mailer.raise_delivery_errors = true
+
+config.action_mailer.smtp_settings = {
+ :enable_starttls_auto =true,
+ :address ='smtp.gmail.com',
+ :port =587,
+ :domain ='your.domain.com',
+ :authentication =:login,
+ :content_type =&quot;text/html&quot;,
+ :user_name =your full username example xyz@gmail.com',
+ :password ='password'
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+
+&lt;p&gt;Remember these are the basic settings needed to send mails from gmail ,other server may have different settings .&lt;/p&gt;
+
+&lt;h3&gt;Creating the mailer&lt;/h3&gt;
+
+&lt;p&gt;Now we will write the method in user_mailer model to send the mail .Remember in the mailer model&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt;
+def send_email(user)
+ recipients user.emailÏ
+ from &quot;webmaster@example.com&quot;
+ subject &quot;Thank you for Registering&quot;
+ part :content_type =&quot;text/html&quot;,
+ :body =render_message(&quot;registration_confirmation&quot;, :user =user)
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+
+&lt;p&gt;The from field can be your own or your domains email address. Please check if the from for field has invalid email the user will not be able to reply .&lt;/p&gt;
+
+&lt;h3&gt;Creating Email Template&lt;/h3&gt;
+
+&lt;p&gt;Now we will create a view which would form a the email template .It is named as same as the method in the model user_mailer ie. Send_email.html.erb&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;pre&gt;&lt;code&gt; 
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt;
+h3 { color: #f00; }
+ul { list-style: none; }
+Your account signup details are below
+Name:  
+Login: 
+Image: 
+Content: 
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+
+
+&lt;p&gt;In the end add a line to the create method of the Users_controller&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;UserMailer.deliver_send_email(@user)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The method is referred to as deliver_send_email because rails appends it to a mailer method.&lt;/p&gt;
+
+&lt;p&gt;Now run the server and try creating a new user. The email is sent to the address the user enters for the new record.&lt;/p&gt;
 </content>
  </entry>
  

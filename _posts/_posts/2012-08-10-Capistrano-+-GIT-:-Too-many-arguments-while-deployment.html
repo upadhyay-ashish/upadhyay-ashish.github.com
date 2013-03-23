@@ -1,0 +1,55 @@
+---           
+layout: post
+title: Capistrano + GIT : Too many arguments while deployment
+date: 2012-08-10 11:56:54 UTC
+updated: 2012-08-10 11:56:54 UTC
+comments: false
+categories: git clone too many arguments capd install git clone git capistrano capistrano
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<b><u>Issue </u>: shell command failed with return code 33024</b></div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+</div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br /></div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+It's a ruby + git clone + windows issue.</div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br /></div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+If
+ I chain commands with &amp;&amp; while calling system(cmd) from ruby, 
+chaining "git clone" with other commands is not fine. Git clone 
+perceives the chained commands as its own continuation, i.e. as a 
+destination directory, unless I run it from the command line. </div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+As I
+ couldn't find any references or solutions to this problem on the 
+internet, I put a hack to capistrano code, so "git clone" is executed 
+separately.&nbsp;</div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br /></div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+In &lt;ruby 
+directory&gt;\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb
+ after the line 53 (cmd = cmd.split...)<br />add the following lines:</div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+if cmd =~ /\s\&amp;\&amp;\s/ &amp;&amp; cmd =~ /^git\s+clone/ <br />&nbsp; &nbsp;cmd1, cmd = cmd.split(" &amp;&amp; ", 2)<br />&nbsp; &nbsp; super(cmd1)<br />end</div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br /></div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+it
+ checks if it's a chained command and the first command is "git clone", 
+and if such it executes it separately. It may not work for all possible 
+cases.</div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br /></div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+Also you can try using ubuntu from your local.</div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br /></div>
+<div style="font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+&nbsp;</div>
+</div><img src="http://feeds.feedburner.com/~r/blogspot/GMijy/~4/Rigf7NEgWeE" height="1" width="1"/>
