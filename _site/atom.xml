@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-23T21:52:48+05:30</updated>
+ <updated>2013-03-23T22:05:38+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -100,6 +100,103 @@ end
 &lt;h3&gt;Also you can try using ubuntu from your local.&lt;/h3&gt;
 
 &lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Creating a native iOS application !</title>
+   <link href="http://rorashish.blogspot.com/posts/Creating-a-native-iOS-application"/>
+   <updated>2012-06-13T19:47:34+05:30</updated>
+   <id>http://rorashish.blogspot.com/posts/Creating-a-native-iOS-application</id>
+   <content type="html">&lt;h3&gt;Installing XCode on the system&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Download and install &lt;code&gt;XCode&lt;/code&gt; from the App Center alongwith the &lt;code&gt;Developer Tools&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Download the Phonegap SDK&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Download and unzip the Phonegap SDK.&lt;/li&gt;
+&lt;li&gt;Now navigate to the &lt;code&gt;iOS directory&lt;/code&gt; in the extracted source and run the &lt;code&gt;Cordova-1.7.0.dmg&lt;/code&gt; and install it.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Creating a XCode Project&lt;/h3&gt;
+
+&lt;p&gt;Run &lt;code&gt;XCode&lt;/code&gt; and create a new Project&lt;/p&gt;
+
+&lt;p&gt;Select the template&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Cordova-based Application&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;This will create the a new project and include the neccesary Phonegap API Files.&lt;/p&gt;
+
+&lt;h3&gt;Changing the default compiler&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Click on the application name and select &lt;code&gt;BUILD SETTINGS&lt;/code&gt; tab in the center pane&lt;/li&gt;
+&lt;li&gt;Change the compiler in the &lt;code&gt;BUILD OPTIONS&lt;/code&gt; from &lt;code&gt;APPLE LLVM COMPILER&lt;/code&gt; to &lt;code&gt;LLVM GCC&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Build and Run the Project&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Click on the left top of the XCode window selecting the default device as iPad/iPhone Now run the Project. This would invoke the simulator and run the application on it.&lt;/li&gt;
+&lt;li&gt;Once the application runs a error will Popup stating the &lt;code&gt;index.html&lt;/code&gt; is not found. Close the simulator and return back to the XCode project window.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Include &lt;code&gt;www&lt;/code&gt; folder in the project to start with application development&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Right click the project name and select &lt;code&gt;Show in Finder&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Drag the &lt;code&gt;www&lt;/code&gt; folder from the &lt;code&gt;Finder&lt;/code&gt; to the &lt;code&gt;Project&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A window pop&amp;rsquo;s up , select to create references to the files.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Again &lt;code&gt;BUILD &amp;amp;amp; RUN&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Now again build and run the project in an iPad/iPhone simulatore&lt;/li&gt;
+&lt;li&gt;This time it would show up the &lt;code&gt;index.html&lt;/code&gt; which is located in the &lt;code&gt;www&lt;/code&gt; folder. Also it would show up the &lt;code&gt;Dialog&lt;/code&gt; stating that Phonegap was successfully integrated in the application&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Download JQuery Mobile bundle&lt;/h3&gt;
+
+&lt;p&gt;Download the latest build of JQuery Mobile from  Unzip the contents and add the files in the &lt;code&gt;www&lt;/code&gt; folder categorizing the folders as&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;javascripts&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stylesheets&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;`images'&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Including the JQuery mobile in the application&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Open &lt;code&gt;index.html&lt;/code&gt; and create references to the javascript and css files located in the &lt;code&gt;www&lt;/code&gt; folder using the html tags&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Add a few lines of HTML to the index page and use the JQuery classes and the Phonegap api function calls to implement the features of the native application as desired&lt;/h4&gt;
+
+&lt;h3&gt;* not tested though&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Once the application is complete or for on Device testing a &lt;code&gt;Apple's Developer License&lt;/code&gt; is required to sign the applications.&lt;/li&gt;
+&lt;li&gt;After signing it , push the application to &lt;code&gt;PhoneGap Build&lt;/code&gt; .&lt;/li&gt;
+&lt;li&gt;Download the build package and deploy to th Device.&lt;/li&gt;
+&lt;/ul&gt;
+
 </content>
  </entry>
  
