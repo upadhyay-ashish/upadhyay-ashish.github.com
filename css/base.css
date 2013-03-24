@@ -124,12 +124,23 @@ a {
     margin-top: 0;
     margin-bottom: 1.2em;
     line-height: 1.7em; }
-    .content p code, .content pre {
-      font-size: 12px;
-      background-color: #eeeeee;
-      border: 1px solid #777777;
-      border-radius: 3px;
-      padding: 2px 3px; }
+    .content p code{
+    background-clip: padding-box;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 2px 5px;
+    white-space: nowrap;
+    }
+    .content pre {  
+    background-color: #393939;
+    border: 1px solid #393939;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.6);
+    color: #F2F2F2;
+    font-family:"Palatino Linotype","Book Antiqua",Palatino,serif
+    margin-left: 0;
+    margin-right: 0;
+    overflow: auto;
+    /*padding: 1.625em;*/ }
   .content img {
     padding: 3px;
     border: 1px solid #eeeeee;
