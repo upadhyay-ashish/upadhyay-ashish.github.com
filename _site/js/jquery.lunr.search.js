@@ -166,7 +166,7 @@
   };
   
   $.fn.lunrSearch.defaults = {
-    indexUrl  : '/js/search.json',     // Url for the .json file containing search index source data (containing: title, url, date, body)
+    indexUrl  : 'ashish.json',     // Url for the .json file containing search index source data (containing: title, url, date, body)
     results   : '#search-results',  // selector for containing search results element
     entries   : '.entries',         // selector for search entries containing element (contained within results above)
     template  : '#search-results-template'  // selector for Mustache.js template
