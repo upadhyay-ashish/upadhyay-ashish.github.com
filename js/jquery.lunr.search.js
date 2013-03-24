@@ -131,6 +131,7 @@
       } else {
 
         //$entries.append(this.template({entries: entries}));
+        alert('ashish');
         $.each(entries, function(index, value){
           html = " <a style='font-size:.7em' href='"+ value.url +"'>"+(index+1) +". " +  value.title +"</a><br />";
           $entries.append(html);
