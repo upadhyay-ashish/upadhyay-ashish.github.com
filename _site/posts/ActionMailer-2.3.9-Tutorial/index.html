@@ -26,13 +26,7 @@
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
-  <!--
-  <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
--->
+
 </head>
 
 <body>
@@ -75,54 +69,24 @@
 
   <h1>Easy email delivery and testing</h1>
 
-
-
-
 <p>Action Mailer allows you to send email from your application using a mailer model and views.<br/>
 This tutorial is about how to send an email using gmail free service in Ruby on Rails 2.3.9, for versions higher than this refer rails guides .</p>
 
-
-
-
 <h3>Creating Demo project</h3>
-
-
-
 
 <p><code>rails mail_demo –d mysql</code></p>
 
-
-
-
 <h3>Creating a User model</h3>
-
-
-
 
 <p><code>ruby script/generate scaffold User name:string email:string content:string </code></p>
 
-
-
-
 <h3>Creating a Mailer model</h3>
-
-
-
 
 <p><code>ruby script/generate mailer user_mailer</code></p>
 
-
-
-
 <h3>Setting up the development.rb for configuring application settings to access mail smtp server</h3>
 
-
-
-
 <h4>In development.rb</h4>
-
-
-
 
 <pre><code>
 config.action_mailer.delivery_method = :smtp
@@ -143,22 +107,11 @@ config.action_mailer.smtp_settings = {
 </code></pre>
 
 
-
-
 <p>Remember these are the basic settings needed to send mails from gmail ,other server may have different settings .</p>
-
-
-
 
 <h3>Creating the mailer</h3>
 
-
-
-
 <p>Now we will write the method in user_mailer model to send the mail .Remember in the mailer model</p>
-
-
-
 
 <pre><code>
 def send_email(user)
@@ -172,22 +125,11 @@ end
 </code></pre>
 
 
-
-
 <p>The from field can be your own or your domains email address. Please check if the from for field has invalid email the user will not be able to reply .</p>
-
-
-
 
 <h3>Creating Email Template</h3>
 
-
-
-
 <p>Now we will create a view which would form a the email template .It is named as same as the method in the model user_mailer ie. Send_email.html.erb</p>
-
-
-
 
 <pre><code> 
 "http://www.w3.org/TR/html4/loose.dtd"&gt;
@@ -202,25 +144,13 @@ Content:
 </code></pre>
 
 
-
-
 <p>In the end add a line to the create method of the Users_controller</p>
-
-
-
 
 <p><code>UserMailer.deliver_send_email(@user)</code></p>
 
-
-
-
 <p>The method is referred to as deliver_send_email because rails appends it to a mailer method.</p>
 
-
-
-
 <p>Now run the server and try creating a new user. The email is sent to the address the user enters for the new record.</p>
-
 
 
   <!-- TODO: bio here -->

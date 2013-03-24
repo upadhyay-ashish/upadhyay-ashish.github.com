@@ -26,13 +26,7 @@
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
-  <!--
-  <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
--->
+
 </head>
 
 <body>
@@ -75,43 +69,22 @@
 
   <h2>Too many arguments while deployment</h2>
 
-
-
-
 <p><strong>Issue : shell command failed with return code 33024</strong></p>
 
-
-
-
 <p>It&rsquo;s a <code>ruby + git clone + windows</code> issue.</p>
-
-
-
 
 <p><strong> If we chain commands with while calling system(cmd) from ruby, chaining <code>git clone</code> with other commands is not fine. Git clone perceives the chained commands as its own continuation, i.e. as a destination directory, unless I run it from the command line.
 </strong></p>
 
-
-
-
 <p>As we couldn&rsquo;t find any references or solutions to this problem on the internet, I put a hack to capistrano code, so <code>git clone</code> is executed separately.</p>
-
-
-
 
 <p>In<br/>
 <code>
 ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb
 </code></p>
 
-
-
-
 <p><strong> after the line 53 (cmd = cmd.split&hellip;) </strong>
 add the following lines:</p>
-
-
-
 
 <pre>
 <code>
@@ -123,20 +96,11 @@ end
 </pre>
 
 
-
-
 <p>it checks if it&rsquo;s a chained command and the first command is &ldquo;git clone&rdquo;, and if such it executes it separately. It may not work for all possible cases.</p>
-
-
-
 
 <h3>Also you can try using ubuntu from your local.</h3>
 
-
-
-
 <hr />
-
 
 
   <!-- TODO: bio here -->
