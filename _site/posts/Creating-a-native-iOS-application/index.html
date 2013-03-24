@@ -23,8 +23,15 @@
   <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css' />
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
+  <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -52,7 +59,20 @@
         <li><a href="/">posts</a></li>
       </ul>
     </section>
-      
+
+<div id="search">
+  <form action="/" method="get">
+    <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+  </form>
+</div>
+
+
+  <p>Search results</p>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    
+    </div>
+  </section>
   </section>
 
   <section class="content">
@@ -66,12 +86,20 @@
 
   <h3>Installing XCode on the system</h3>
 
+
+
+
 <ul>
 <li>Download and install <code>XCode</code> from the App Center alongwith the <code>Developer Tools</code></li>
 </ul>
 
 
+
+
 <h3>Download the Phonegap SDK</h3>
+
+
+
 
 <ul>
 <li>Download and unzip the Phonegap SDK.</li>
@@ -79,20 +107,39 @@
 </ul>
 
 
+
+
 <h3>Creating a XCode Project</h3>
+
+
+
 
 <p>Run <code>XCode</code> and create a new Project</p>
 
+
+
+
 <p>Select the template</p>
+
+
+
 
 <ul>
 <li><code>Cordova-based Application</code></li>
 </ul>
 
 
+
+
 <p>This will create the a new project and include the neccesary Phonegap API Files.</p>
 
+
+
+
 <h3>Changing the default compiler</h3>
+
+
+
 
 <ul>
 <li>Click on the application name and select <code>BUILD SETTINGS</code> tab in the center pane</li>
@@ -100,7 +147,12 @@
 </ul>
 
 
+
+
 <h3>Build and Run the Project</h3>
+
+
+
 
 <ul>
 <li>Click on the left top of the XCode window selecting the default device as iPad/iPhone Now run the Project. This would invoke the simulator and run the application on it.</li>
@@ -108,7 +160,12 @@
 </ul>
 
 
+
+
 <h3>Include <code>www</code> folder in the project to start with application development</h3>
+
+
+
 
 <ul>
 <li>Right click the project name and select <code>Show in Finder</code></li>
@@ -117,7 +174,12 @@
 </ul>
 
 
+
+
 <h3>Again <code>BUILD &amp;amp; RUN</code></h3>
+
+
+
 
 <ul>
 <li>Now again build and run the project in an iPad/iPhone simulatore</li>
@@ -125,9 +187,17 @@
 </ul>
 
 
+
+
 <h3>Download JQuery Mobile bundle</h3>
 
+
+
+
 <p>Download the latest build of JQuery Mobile from  Unzip the contents and add the files in the <code>www</code> folder categorizing the folders as</p>
+
+
+
 
 <ul>
 <li><code>javascripts</code></li>
@@ -136,22 +206,37 @@
 </ul>
 
 
+
+
 <h3>Including the JQuery mobile in the application</h3>
+
+
+
 
 <ul>
 <li>Open <code>index.html</code> and create references to the javascript and css files located in the <code>www</code> folder using the html tags</li>
 </ul>
 
 
+
+
 <h4>Add a few lines of HTML to the index page and use the JQuery classes and the Phonegap api function calls to implement the features of the native application as desired</h4>
 
+
+
+
 <h3>* not tested though</h3>
+
+
+
 
 <ul>
 <li>Once the application is complete or for on Device testing a <code>Apple's Developer License</code> is required to sign the applications.</li>
 <li>After signing it , push the application to <code>PhoneGap Build</code> .</li>
 <li>Download the build package and deploy to th Device.</li>
 </ul>
+
+
 
 
 
@@ -175,6 +260,20 @@
     </section>
   </section>
 </section>
+
+  </div>
+</section>
 </body>
+<script type="text/javascript">
+  $(function() {
+    $('#search-query').lunrSearch({
+      indexUrl: '/search.json',             // URL of the `search.json` index data for your site
+      results:  '#search-results',          // jQuery selector for the search results container
+      entries:  '.entries',    // jQuery selector for the element to contain the results list, must be a child of the results element above.
+      template: '#search_results_template'  // jQuery selector for the Mustache.js template
+    });
+  });
+
+</script>
 
 </html>

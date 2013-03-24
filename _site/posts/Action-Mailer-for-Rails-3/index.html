@@ -23,8 +23,15 @@
   <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css' />
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
+  <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -52,7 +59,20 @@
         <li><a href="/">posts</a></li>
       </ul>
     </section>
-      
+
+<div id="search">
+  <form action="/" method="get">
+    <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+  </form>
+</div>
+
+
+  <p>Search results</p>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    
+    </div>
+  </section>
   </section>
 
   <section class="content">
@@ -66,28 +86,64 @@
 
   <h2>For rails 3</h2>
 
+
+
+
 <p>Action Mailer allows you to send email from your application using a mailer
 model and views.</p>
 
+
+
+
 <p>This tutorial is about how to send an email using gmail free service in Ruby on Rails 3 and above</div></p>
+
+
+
 
 <h3>Creating Demo project</h3>
 
+
+
+
 <p><code> rails new mail_demo –d mysql </code></p>
+
+
+
 
 <h3>Creating a User model</h3>
 
+
+
+
 <p><code>rails g scaffold User name:string email:string content:string </code></p>
+
+
+
 
 <h3>Creating a Mailer model</h3>
 
+
+
+
 <p><code> rails g mailer user_mailer </code></p>
+
+
+
 
 <h3>Setting up the development.rb for configuring application settings to</h3>
 
+
+
+
 <p>access mail smtp server</p>
 
+
+
+
 <h4>In development.rb</h4>
+
+
+
 
 <pre>
 <code>
@@ -109,12 +165,23 @@ config.action_mailer.raise_delivery_errors = true
 </pre>
 
 
+
+
 <p>Remember these are the basic settings needed to send mails from gmail ,other server may
 have different settings.</p>
 
+
+
+
 <h3>Creating the mailer</h3>
 
+
+
+
 <p>Now we will write the method in user_mailer model to send the mail .Remember in the mailer model  :</p>
+
+
+
 
 <pre>
 <code>
@@ -129,7 +196,12 @@ end
 </pre>
 
 
+
+
 <h3>Creating Email Template</h3>
+
+
+
 
 <pre><code> 
 "http://www.w3.org/TR/html4/loose.dtd"&gt;
@@ -144,9 +216,12 @@ Content:
 </code></pre>
 
 
+
+
 <p>The method is referred to as deliver_send_email because rails appends it to a mailer method.Now
 run the server and try creating a new user . The email is sent to the address
 the user enters for the new record.</p>
+
 
 
   <!-- TODO: bio here -->
@@ -169,6 +244,20 @@ the user enters for the new record.</p>
     </section>
   </section>
 </section>
+
+  </div>
+</section>
 </body>
+<script type="text/javascript">
+  $(function() {
+    $('#search-query').lunrSearch({
+      indexUrl: '/search.json',             // URL of the `search.json` index data for your site
+      results:  '#search-results',          // jQuery selector for the search results container
+      entries:  '.entries',    // jQuery selector for the element to contain the results list, must be a child of the results element above.
+      template: '#search_results_template'  // jQuery selector for the Mustache.js template
+    });
+  });
+
+</script>
 
 </html>

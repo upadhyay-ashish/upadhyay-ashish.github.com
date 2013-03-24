@@ -23,8 +23,15 @@
   <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css' />
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
+  <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -52,10 +59,37 @@
         <li><a href="/">posts</a></li>
       </ul>
     </section>
-      
+
+<div id="search">
+  <form action="/" method="get">
+    <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+  </form>
+</div>
+
+
+  <p>Search results</p>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    {{> search_results_template }}
+    </div>
+  </section>
   </section>
 
   {{ content }}
+
+  </div>
+</section>
 </body>
+<script type="text/javascript">
+  $(function() {
+    $('#search-query').lunrSearch({
+      indexUrl: '/search.json',             // URL of the `search.json` index data for your site
+      results:  '#search-results',          // jQuery selector for the search results container
+      entries:  '.entries',    // jQuery selector for the element to contain the results list, must be a child of the results element above.
+      template: '#search_results_template'  // jQuery selector for the Mustache.js template
+    });
+  });
+
+</script>
 
 </html>

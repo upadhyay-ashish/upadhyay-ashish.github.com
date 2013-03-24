@@ -23,8 +23,15 @@
   <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css' />
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
+  <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -52,7 +59,20 @@
         <li><a href="/">posts</a></li>
       </ul>
     </section>
-      
+
+<div id="search">
+  <form action="/" method="get">
+    <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+  </form>
+</div>
+
+
+  <p>Search results</p>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    
+    </div>
+  </section>
   </section>
 
   <section class="content">
@@ -66,9 +86,18 @@
 
   <h2>TCS RSS Feed Reader  123</h2>
 
+
+
+
 <p><a href="https://github.com/upadhyay-ashish/TCSRssReader">TCS RSS Feed</a></p>
 
+
+
+
 <p>This is an iOS application build using</p>
+
+
+
 
 <ul>
 <li><a href="http://rubymotion.com/">Rubymotion</a></li>
@@ -79,9 +108,17 @@
 </ul>
 
 
+
+
 <h3>Running on Simulator/Device</h3>
 
+
+
+
 <p>You will need Rubymotion installed on your Mac.</p>
+
+
+
 
 <ol>
 <li> Clone repo <code> git clone git@github.com:upadhyay-ashish/TCSRssReader.git</code></li>
@@ -93,19 +130,37 @@
 </ol>
 
 
+
+
 <h3>Screenshots</h3>
+
+
+
 
 <p>  <img src="/images/March-23-2013/icon.png" alt="Alt Icon" />  <img src="/images/March-23-2013/menu.png" alt="Alt Icon" /><br/>
   <img src="/images/March-23-2013/events.png" alt="Alt Icon" />  <img src="/images/March-23-2013/news.png" alt="Alt Icon" /> <br/>
   <img src="/images/March-23-2013/press_releases.png" alt="Alt Icon" /></p>
 
+
+
+
 <h3>Suggestions ?</h3>
+
+
+
 
 <p>Please log an issue <a href="https://github.com/upadhyay-ashish/TCSRssReader/issues">here</a></p>
 
+
+
+
 <p><a href="ashish.upadhyaye@gmail.com">ashish.upadhyaye@gmail.com</a></p>
 
+
+
+
 <hr />
+
 
 
   <!-- TODO: bio here -->
@@ -128,6 +183,20 @@
     </section>
   </section>
 </section>
+
+  </div>
+</section>
 </body>
+<script type="text/javascript">
+  $(function() {
+    $('#search-query').lunrSearch({
+      indexUrl: '/search.json',             // URL of the `search.json` index data for your site
+      results:  '#search-results',          // jQuery selector for the search results container
+      entries:  '.entries',    // jQuery selector for the element to contain the results list, must be a child of the results element above.
+      template: '#search_results_template'  // jQuery selector for the Mustache.js template
+    });
+  });
+
+</script>
 
 </html>

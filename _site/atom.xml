@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-24T03:52:22+05:30</updated>
+ <updated>2013-03-24T07:13:01+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -18,9 +18,18 @@
    <id>http://rorashish.blogspot.com/posts/Rubymotion</id>
    <content type="html">&lt;h2&gt;TCS RSS Feed Reader  123&lt;/h2&gt;
 
+
+
+
 &lt;p&gt;&lt;a href=&quot;https://github.com/upadhyay-ashish/TCSRssReader&quot;&gt;TCS RSS Feed&lt;/a&gt;&lt;/p&gt;
 
+
+
+
 &lt;p&gt;This is an iOS application build using&lt;/p&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://rubymotion.com/&quot;&gt;Rubymotion&lt;/a&gt;&lt;/li&gt;
@@ -31,9 +40,17 @@
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Running on Simulator/Device&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;You will need Rubymotion installed on your Mac.&lt;/p&gt;
+
+
+
 
 &lt;ol&gt;
 &lt;li&gt; Clone repo &lt;code&gt; git clone git@github.com:upadhyay-ashish/TCSRssReader.git&lt;/code&gt;&lt;/li&gt;
@@ -45,19 +62,37 @@
 &lt;/ol&gt;
 
 
+
+
 &lt;h3&gt;Screenshots&lt;/h3&gt;
+
+
+
 
 &lt;p&gt;  &lt;img src=&quot;/images/March-23-2013/icon.png&quot; alt=&quot;Alt Icon&quot; /&gt;  &lt;img src=&quot;/images/March-23-2013/menu.png&quot; alt=&quot;Alt Icon&quot; /&gt;&lt;br/&gt;
   &lt;img src=&quot;/images/March-23-2013/events.png&quot; alt=&quot;Alt Icon&quot; /&gt;  &lt;img src=&quot;/images/March-23-2013/news.png&quot; alt=&quot;Alt Icon&quot; /&gt; &lt;br/&gt;
   &lt;img src=&quot;/images/March-23-2013/press_releases.png&quot; alt=&quot;Alt Icon&quot; /&gt;&lt;/p&gt;
 
+
+
+
 &lt;h3&gt;Suggestions ?&lt;/h3&gt;
+
+
+
 
 &lt;p&gt;Please log an issue &lt;a href=&quot;https://github.com/upadhyay-ashish/TCSRssReader/issues&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
+
+
+
 &lt;p&gt;&lt;a href=&quot;ashish.upadhyaye@gmail.com&quot;&gt;ashish.upadhyaye@gmail.com&lt;/a&gt;&lt;/p&gt;
 
+
+
+
 &lt;hr /&gt;
+
 </content>
  </entry>
  
@@ -68,11 +103,15 @@
    <id>http://rorashish.blogspot.com/posts/Replacing-master-with-a-branch-GIT</id>
    <content type="html">&lt;h3&gt;This will help us to overwrite the master branch with a new branch incase the new branch is in a better state than the master&lt;/h3&gt;
 
+
+
+
 &lt;pre&gt;&lt;code&gt;    git checkout seotweaks
     git merge -s ours master
     git checkout master
     git merge seotweaks  
 &lt;/code&gt;&lt;/pre&gt;
+
 </content>
  </entry>
  
@@ -82,6 +121,9 @@
    <updated>2013-01-08T21:02:14+05:30</updated>
    <id>http://rorashish.blogspot.com/posts/Using-Oracle-JDBC-with-JRuby-on-Mac-OSx</id>
    <content type="html">&lt;h3&gt;Please follow the below steps to create a jruby library to connect to any oracle database on Mac OS x using Java ODBC drivers.&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Create the Library folder and the Ruby file. eg &lt;code&gt;Sample.rb&lt;/code&gt;&lt;/li&gt;
@@ -118,6 +160,8 @@ jruby Sample.rb
 and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+
+
 </content>
  </entry>
  
@@ -128,7 +172,13 @@ and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&
    <id>http://rorashish.blogspot.com/posts/Using-nested_forms-gem-+-dropbox-paperclip-+-twitter-bootstrap</id>
    <content type="html">&lt;h4&gt;This is a tutorial about using nested_forms gem with dropbox-paperclip plugin on Heroku to create a multiple photo upload albums interface with twitter bootstrap&lt;/h4&gt;
 
+
+
+
 &lt;p&gt;&lt;a href=&quot;http://ashish-albums.herokuapp.com&quot;&gt;Demo application&lt;/a&gt;&lt;/p&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Create a new rails app and add the gems to Gemfile.**&lt;/p&gt;
@@ -325,6 +375,8 @@ and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+
+
 </content>
  </entry>
  
@@ -351,6 +403,8 @@ and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&
 &lt;pre&gt;&lt;code&gt;  git diff --name-status master..sibos
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+
 
 </content>
  </entry>
@@ -387,6 +441,8 @@ Next, move the rest of the references under refs/remotes to be local branches:&l
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+
+
 </content>
  </entry>
  
@@ -401,6 +457,7 @@ Next, move the rest of the references under refs/remotes to be local branches:&l
 
     ruby extconf.rb &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install
 &lt;/code&gt;&lt;/pre&gt;
+
 </content>
  </entry>
  
@@ -411,22 +468,43 @@ Next, move the rest of the references under refs/remotes to be local branches:&l
    <id>http://rorashish.blogspot.com/posts/Capistrano-+-GIT-:-Too-many-arguments-while-deployment</id>
    <content type="html">&lt;h2&gt;Too many arguments while deployment&lt;/h2&gt;
 
+
+
+
 &lt;p&gt;&lt;strong&gt;Issue : shell command failed with return code 33024&lt;/strong&gt;&lt;/p&gt;
 
+
+
+
 &lt;p&gt;It&amp;rsquo;s a &lt;code&gt;ruby + git clone + windows&lt;/code&gt; issue.&lt;/p&gt;
+
+
+
 
 &lt;p&gt;&lt;strong&gt; If we chain commands with while calling system(cmd) from ruby, chaining &lt;code&gt;git clone&lt;/code&gt; with other commands is not fine. Git clone perceives the chained commands as its own continuation, i.e. as a destination directory, unless I run it from the command line.
 &lt;/strong&gt;&lt;/p&gt;
 
+
+
+
 &lt;p&gt;As we couldn&amp;rsquo;t find any references or solutions to this problem on the internet, I put a hack to capistrano code, so &lt;code&gt;git clone&lt;/code&gt; is executed separately.&lt;/p&gt;
+
+
+
 
 &lt;p&gt;In&lt;br/&gt;
 &lt;code&gt;
 ruby-directory\lib\ruby\gems\1.8\gems\capistrano-2.5.18\lib\capistrano\recipes\deploy\strategy\base.rb
 &lt;/code&gt;&lt;/p&gt;
 
+
+
+
 &lt;p&gt;&lt;strong&gt; after the line 53 (cmd = cmd.split&amp;hellip;) &lt;/strong&gt;
 add the following lines:&lt;/p&gt;
+
+
+
 
 &lt;pre&gt;
 &lt;code&gt;
@@ -438,11 +516,20 @@ end
 &lt;/pre&gt;
 
 
+
+
 &lt;p&gt;it checks if it&amp;rsquo;s a chained command and the first command is &amp;ldquo;git clone&amp;rdquo;, and if such it executes it separately. It may not work for all possible cases.&lt;/p&gt;
+
+
+
 
 &lt;h3&gt;Also you can try using ubuntu from your local.&lt;/h3&gt;
 
+
+
+
 &lt;hr /&gt;
+
 </content>
  </entry>
  
@@ -452,6 +539,9 @@ end
    <updated>2012-08-09T14:00:18+05:30</updated>
    <id>http://rorashish.blogspot.com/posts/Installing-RMagick-with-Imagemagic-on-Windows-7</id>
    <content type="html">&lt;p&gt;Working with Windows 7 64bit and Ruby 1.9.3.&lt;/p&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Install Ghostscript&lt;br/&gt;
@@ -468,10 +558,14 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;blockquote&gt;&lt;pre&gt;&lt;code&gt;&lt;/code&gt;
     gem install rmagick --platform=ruby -- --with-opt-lib=C:/opt/ImageMagick-6.7.6-Q16/lib 
     --with-opt-include=c:/opt/ImageMagick-6.7.6-Q16/include
 &lt;/pre&gt;&lt;/blockquote&gt;
+
+
 
 </content>
  </entry>
@@ -483,12 +577,20 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
    <id>http://rorashish.blogspot.com/posts/Creating-a-native-iOS-application</id>
    <content type="html">&lt;h3&gt;Installing XCode on the system&lt;/h3&gt;
 
+
+
+
 &lt;ul&gt;
 &lt;li&gt;Download and install &lt;code&gt;XCode&lt;/code&gt; from the App Center alongwith the &lt;code&gt;Developer Tools&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Download the Phonegap SDK&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Download and unzip the Phonegap SDK.&lt;/li&gt;
@@ -496,20 +598,39 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Creating a XCode Project&lt;/h3&gt;
+
+
+
 
 &lt;p&gt;Run &lt;code&gt;XCode&lt;/code&gt; and create a new Project&lt;/p&gt;
 
+
+
+
 &lt;p&gt;Select the template&lt;/p&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Cordova-based Application&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;p&gt;This will create the a new project and include the neccesary Phonegap API Files.&lt;/p&gt;
 
+
+
+
 &lt;h3&gt;Changing the default compiler&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Click on the application name and select &lt;code&gt;BUILD SETTINGS&lt;/code&gt; tab in the center pane&lt;/li&gt;
@@ -517,7 +638,12 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Build and Run the Project&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Click on the left top of the XCode window selecting the default device as iPad/iPhone Now run the Project. This would invoke the simulator and run the application on it.&lt;/li&gt;
@@ -525,7 +651,12 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Include &lt;code&gt;www&lt;/code&gt; folder in the project to start with application development&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Right click the project name and select &lt;code&gt;Show in Finder&lt;/code&gt;&lt;/li&gt;
@@ -534,7 +665,12 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Again &lt;code&gt;BUILD &amp;amp;amp; RUN&lt;/code&gt;&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Now again build and run the project in an iPad/iPhone simulatore&lt;/li&gt;
@@ -542,9 +678,17 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Download JQuery Mobile bundle&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;Download the latest build of JQuery Mobile from  Unzip the contents and add the files in the &lt;code&gt;www&lt;/code&gt; folder categorizing the folders as&lt;/p&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;javascripts&lt;/code&gt;&lt;/li&gt;
@@ -553,22 +697,37 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h3&gt;Including the JQuery mobile in the application&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Open &lt;code&gt;index.html&lt;/code&gt; and create references to the javascript and css files located in the &lt;code&gt;www&lt;/code&gt; folder using the html tags&lt;/li&gt;
 &lt;/ul&gt;
 
 
+
+
 &lt;h4&gt;Add a few lines of HTML to the index page and use the JQuery classes and the Phonegap api function calls to implement the features of the native application as desired&lt;/h4&gt;
 
+
+
+
 &lt;h3&gt;* not tested though&lt;/h3&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;Once the application is complete or for on Device testing a &lt;code&gt;Apple's Developer License&lt;/code&gt; is required to sign the applications.&lt;/li&gt;
 &lt;li&gt;After signing it , push the application to &lt;code&gt;PhoneGap Build&lt;/code&gt; .&lt;/li&gt;
 &lt;li&gt;Download the build package and deploy to th Device.&lt;/li&gt;
 &lt;/ul&gt;
+
+
 
 </content>
  </entry>
@@ -613,7 +772,12 @@ at the terminal .The screen should come up something like this :
 &lt;/ul&gt;
 
 
+
+
 &lt;p&gt;&lt;strong&gt;Now we will generate a demo application using rhodes to test the emulator.&lt;/strong&gt;&lt;/p&gt;
+
+
+
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Setting up Android SDK to host an emulator of a specific android version.&lt;/p&gt;&lt;/li&gt;
@@ -632,6 +796,8 @@ at the terminal .The screen should come up something like this :
 &lt;li&gt;&lt;p&gt;The android emulator will show up in a few minutes and load the rhomobile application . &lt;br/&gt;
 Now we can go forward designing the mobile application.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+
 
 </content>
  </entry>
@@ -703,6 +869,8 @@ Now we can go forward designing the mobile application.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;This will allow the data on index page to be exported in Excel Format&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+
+
 </content>
  </entry>
  
@@ -713,28 +881,64 @@ Now we can go forward designing the mobile application.&lt;/p&gt;&lt;/li&gt;
    <id>http://rorashish.blogspot.com/posts/Action-Mailer-for-Rails-3</id>
    <content type="html">&lt;h2&gt;For rails 3&lt;/h2&gt;
 
+
+
+
 &lt;p&gt;Action Mailer allows you to send email from your application using a mailer
 model and views.&lt;/p&gt;
 
+
+
+
 &lt;p&gt;This tutorial is about how to send an email using gmail free service in Ruby on Rails 3 and above&lt;/div&gt;&lt;/p&gt;
+
+
+
 
 &lt;h3&gt;Creating Demo project&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;&lt;code&gt; rails new mail_demo –d mysql &lt;/code&gt;&lt;/p&gt;
+
+
+
 
 &lt;h3&gt;Creating a User model&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;&lt;code&gt;rails g scaffold User name:string email:string content:string &lt;/code&gt;&lt;/p&gt;
+
+
+
 
 &lt;h3&gt;Creating a Mailer model&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;&lt;code&gt; rails g mailer user_mailer &lt;/code&gt;&lt;/p&gt;
+
+
+
 
 &lt;h3&gt;Setting up the development.rb for configuring application settings to&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;access mail smtp server&lt;/p&gt;
 
+
+
+
 &lt;h4&gt;In development.rb&lt;/h4&gt;
+
+
+
 
 &lt;pre&gt;
 &lt;code&gt;
@@ -756,12 +960,23 @@ config.action_mailer.raise_delivery_errors = true
 &lt;/pre&gt;
 
 
+
+
 &lt;p&gt;Remember these are the basic settings needed to send mails from gmail ,other server may
 have different settings.&lt;/p&gt;
 
+
+
+
 &lt;h3&gt;Creating the mailer&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;Now we will write the method in user_mailer model to send the mail .Remember in the mailer model  :&lt;/p&gt;
+
+
+
 
 &lt;pre&gt;
 &lt;code&gt;
@@ -776,7 +991,12 @@ end
 &lt;/pre&gt;
 
 
+
+
 &lt;h3&gt;Creating Email Template&lt;/h3&gt;
+
+
+
 
 &lt;pre&gt;&lt;code&gt; 
 &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt;
@@ -791,9 +1011,12 @@ Content:
 &lt;/code&gt;&lt;/pre&gt;
 
 
+
+
 &lt;p&gt;The method is referred to as deliver_send_email because rails appends it to a mailer method.Now
 run the server and try creating a new user . The email is sent to the address
 the user enters for the new record.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -804,24 +1027,54 @@ the user enters for the new record.&lt;/p&gt;
    <id>http://rorashish.blogspot.com/posts/ActionMailer-2.3.9-Tutorial</id>
    <content type="html">&lt;h1&gt;Easy email delivery and testing&lt;/h1&gt;
 
+
+
+
 &lt;p&gt;Action Mailer allows you to send email from your application using a mailer model and views.&lt;br/&gt;
 This tutorial is about how to send an email using gmail free service in Ruby on Rails 2.3.9, for versions higher than this refer rails guides .&lt;/p&gt;
 
+
+
+
 &lt;h3&gt;Creating Demo project&lt;/h3&gt;
+
+
+
 
 &lt;p&gt;&lt;code&gt;rails mail_demo –d mysql&lt;/code&gt;&lt;/p&gt;
 
+
+
+
 &lt;h3&gt;Creating a User model&lt;/h3&gt;
+
+
+
 
 &lt;p&gt;&lt;code&gt;ruby script/generate scaffold User name:string email:string content:string &lt;/code&gt;&lt;/p&gt;
 
+
+
+
 &lt;h3&gt;Creating a Mailer model&lt;/h3&gt;
+
+
+
 
 &lt;p&gt;&lt;code&gt;ruby script/generate mailer user_mailer&lt;/code&gt;&lt;/p&gt;
 
+
+
+
 &lt;h3&gt;Setting up the development.rb for configuring application settings to access mail smtp server&lt;/h3&gt;
 
+
+
+
 &lt;h4&gt;In development.rb&lt;/h4&gt;
+
+
+
 
 &lt;pre&gt;&lt;code&gt;
 config.action_mailer.delivery_method = :smtp
@@ -842,11 +1095,22 @@ config.action_mailer.smtp_settings = {
 &lt;/code&gt;&lt;/pre&gt;
 
 
+
+
 &lt;p&gt;Remember these are the basic settings needed to send mails from gmail ,other server may have different settings .&lt;/p&gt;
+
+
+
 
 &lt;h3&gt;Creating the mailer&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;Now we will write the method in user_mailer model to send the mail .Remember in the mailer model&lt;/p&gt;
+
+
+
 
 &lt;pre&gt;&lt;code&gt;
 def send_email(user)
@@ -860,11 +1124,22 @@ end
 &lt;/code&gt;&lt;/pre&gt;
 
 
+
+
 &lt;p&gt;The from field can be your own or your domains email address. Please check if the from for field has invalid email the user will not be able to reply .&lt;/p&gt;
+
+
+
 
 &lt;h3&gt;Creating Email Template&lt;/h3&gt;
 
+
+
+
 &lt;p&gt;Now we will create a view which would form a the email template .It is named as same as the method in the model user_mailer ie. Send_email.html.erb&lt;/p&gt;
+
+
+
 
 &lt;pre&gt;&lt;code&gt; 
 &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt;
@@ -879,13 +1154,25 @@ Content:
 &lt;/code&gt;&lt;/pre&gt;
 
 
+
+
 &lt;p&gt;In the end add a line to the create method of the Users_controller&lt;/p&gt;
+
+
+
 
 &lt;p&gt;&lt;code&gt;UserMailer.deliver_send_email(@user)&lt;/code&gt;&lt;/p&gt;
 
+
+
+
 &lt;p&gt;The method is referred to as deliver_send_email because rails appends it to a mailer method.&lt;/p&gt;
 
+
+
+
 &lt;p&gt;Now run the server and try creating a new user. The email is sent to the address the user enters for the new record.&lt;/p&gt;
+
 </content>
  </entry>
  
