@@ -11,3 +11,8 @@ description: A fantastic blog that is fantastic.
 twitter: _zapper320
 github: upadhyay-ashish
 gravatar_url: https://secure.gravatar.com/avatar/a9bdddc86fb5585eaf2ebbb8e262735e?s=420
+
+analytics :
+  provider : google
+  google : 
+      tracking_id : 'UA-39566611-1'
