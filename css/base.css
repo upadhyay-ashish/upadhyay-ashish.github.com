@@ -132,11 +132,12 @@ a {
     white-space: nowrap;
     }
     .content pre {  
-    background-color: #393939;
-    border: 1px solid #393939;
+    /*background-color: #393939;*/
+    /*border: 1px solid #393939;*/
+    padding-top: 15px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.6);
-    color: #F2F2F2;
-    font-family:"Palatino Linotype","Book Antiqua",Palatino,serif
+    /*color: #F2F2F2;*/
+    font-family:"Palatino Linotype";
     margin-left: 0;
     margin-right: 0;
     overflow: auto;

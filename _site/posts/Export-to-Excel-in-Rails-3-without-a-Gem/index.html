@@ -68,65 +68,96 @@
   </section>
 
   <ul>
-<li><p>Creating Demo project</p>
+<li>Creating Demo project</li>
+</ul>
 
-<pre><code>  rails new xcel_demo –d mysql
-</code></pre></li>
-<li><p>Creating a User model</p>
 
-<pre><code>  rails g scaffold User name:string email:string content:string
-</code></pre></li>
-<li><p>Add a MIME type in \config\initializers\mime_type.rb</p>
+<div class="highlight"><pre><code class="ruby"> <span class="n">rails</span> <span class="kp">new</span> <span class="n">xcel_demo</span> <span class="err">–</span><span class="n">d</span> <span class="n">mysql</span>
+</code></pre></div>
 
-<pre><code>  Mime::Type.register 'application/vnd.ms-excel', :xls
-</code></pre></li>
-<li><p>Add a xls format output to the method in the Controller</p>
 
-<pre><code>  def index
-    @users = User.all
+<ul>
+<li>Creating a User model</li>
+</ul>
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xls
-      format.xml  { render :xml =&gt; @users }
-    end
-  end
-</code></pre></li>
+
+<div class="highlight"><pre><code class="ruby"> <span class="n">rails</span> <span class="n">g</span> <span class="n">scaffold</span> <span class="no">User</span> <span class="nb">name</span><span class="ss">:string</span> <span class="ss">email</span><span class="p">:</span><span class="n">string</span> <span class="ss">content</span><span class="p">:</span><span class="n">string</span>
+</code></pre></div>
+
+
+<ul>
+<li>Add a MIME type in \config\initializers\mime_type.rb</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby"> <span class="ss">Mime</span><span class="p">:</span><span class="ss">:Type</span><span class="o">.</span><span class="n">register</span> <span class="s1">&#39;application/vnd.ms-excel&#39;</span><span class="p">,</span> <span class="ss">:xls</span>
+</code></pre></div>
+
+
+<ul>
+<li>Add a xls format output to the method in the Controller</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">     <span class="k">def</span> <span class="nf">index</span>
+      <span class="vi">@users</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">all</span>
+      <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+        <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="c1"># index.html.erb</span>
+        <span class="nb">format</span><span class="o">.</span><span class="n">xls</span>
+        <span class="nb">format</span><span class="o">.</span><span class="n">xml</span>  <span class="p">{</span> <span class="n">render</span> <span class="ss">:xml</span> <span class="o">=&gt;</span> <span class="vi">@users</span> <span class="p">}</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+        
+</code></pre></div>
+
+
+<ul>
 <li><p>Creating the view for the XLS</p></li>
-<li><p>Now create a view to render the xls file. Here as we have modified the index method we will create a view index.xls.erb for the same in the views for Users</p>
+<li><p>Now create a view to render the xls file. Here as we have modified the index method we will create a view index.xls.erb for the same in the views for Users</p></li>
+</ul>
 
-<pre><code>  &lt;h1&gt;Listing users&lt;/h1&gt;
 
-  &lt;table&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;City&lt;/th&gt;
-      &lt;th&gt;Gender&lt;/th&gt;
-      &lt;th&gt;Phone&lt;/th&gt;
-      &lt;th&gt;Address&lt;/th&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;/th&gt;
-    &lt;/tr&gt;
+<div class="highlight"><pre><code class="ruby"> <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Listing</span> <span class="n">users</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
 
-  &lt;% @users.each do |user| %&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;%= user.name %&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= user.city %&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= user.gender %&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= user.phone %&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= user.address %&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;% end %&gt;
-  &lt;/table&gt;
+<span class="sr">   &lt;table&gt;</span>
+<span class="sr">     &lt;tr&gt;</span>
+<span class="sr">       &lt;th&gt;Name&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="no">City</span><span class="o">&lt;</span><span class="sr">/th&gt;</span>
+<span class="sr">       &lt;th&gt;Gender&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="no">Phone</span><span class="o">&lt;</span><span class="sr">/th&gt;</span>
+<span class="sr">       &lt;th&gt;Address&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;&lt;</span><span class="sr">/th&gt;</span>
+<span class="sr">       &lt;th&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;&lt;</span><span class="sr">/th&gt;</span>
+<span class="sr">     &lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
 
-  &lt;br /&gt;
-</code></pre></li>
-<li><p>The text in the <th> tags are the headers and <td> tags are the data for the specified columns</p></li>
-<li><p>Adding the link to export excel on the Index page</p>
+    <span class="o">&lt;</span><span class="sx">% @users.each </span><span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="sx">%&gt;</span>
+<span class="sx">     &lt;tr&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="sx">%= user.name %&gt;&lt;/td&gt;</span>
+<span class="sx">       &lt;td&gt;&lt;%=</span> <span class="n">user</span><span class="o">.</span><span class="n">city</span> <span class="sx">%&gt;&lt;/td&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="sx">%= user.gender %&gt;&lt;/td&gt;</span>
+<span class="sx">       &lt;td&gt;&lt;%=</span> <span class="n">user</span><span class="o">.</span><span class="n">phone</span> <span class="sx">%&gt;&lt;/td&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;%=</span> <span class="n">user</span><span class="o">.</span><span class="n">address</span> <span class="sx">%&gt;&lt;/td&gt;</span>
+      <span class="o">&lt;</span><span class="sr">/tr&gt;</span>
+<span class="sr">   &lt;% end %&gt;</span>
+<span class="sr">   &lt;/</span><span class="n">table</span><span class="o">&gt;</span>
 
-<p>   <code>&lt;%= link_to 'Export XLS', url_for(:format =&gt; 'xls') %&gt;</code></p></li>
-<li><p>This will allow the data on index page to be exported in Excel Format</p></li>
+    <span class="o">&lt;</span><span class="n">br</span> <span class="sr">/&gt;</span>
+</code></pre></div>
+
+
+<ul>
+<li>The text in the <th> tags are the headers and <td> tags are the data for the specified columns</li>
+<li>Adding the link to export excel on the Index page</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">    <span class="sb">`&lt;%= link_to &#39;Export XLS&#39;, url_for(:format =&gt; &#39;xls&#39;) %&gt;`</span>
+</code></pre></div>
+
+
+<ul>
+<li>This will allow the data on index page to be exported in Excel Format</li>
 </ul>
 
 

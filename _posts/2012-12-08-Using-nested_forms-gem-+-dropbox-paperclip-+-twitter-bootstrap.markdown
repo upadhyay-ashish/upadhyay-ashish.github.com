@@ -12,20 +12,22 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
 [Demo application](http://ashish-albums.herokuapp.com)
    
 + Create a new rails app and add the gems to Gemfile.**  
-   
+{% highlight ruby linenos %}
         paperclip
         paperclip-dropbox
-        nested_form 
-
+        nested_form     
+      
+{% endhighlight %}
 + Create 3 models**  
-   
+   {% highlight ruby linenos %}
         rails g model User name:string  
         rails g model Album name:string user_id:integer
-        rails g model Photo tags_name:string album_id:integer
-
+        rails g model Photo tags_name:string album_id:integer    
+   
+{% endhighlight %}
 + Adding relationships among models
 #### in app/models/user.rb
-
+{% highlight ruby linenos %}
         has_many :albums, :dependent =:destroy  
         accepts_nested_attributes_for :albums  
         attr_accessible :name, :albums_attributes  
@@ -45,10 +47,10 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
         :path =proc { |style| "#{style}/#{id}_#{avatar.original_filename}"}  
         }  
         validates_presence_of :avatar   
-   
+{% endhighlight %}
 + Adding a controller and a few actions**  
-   
-        rails g controller Users 
+{% highlight ruby linenos %}   
+    rails g controller Users 
         add following code to the controller 
         def index  
          @users = User.all  
@@ -76,10 +78,10 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
          @user.destroy  
          redirect_to root_url  
         end 
-
-  
+      
+{% endhighlight %}  
 + Adding routes to routes.rb
-
+{% highlight ruby linenos %}   
         resources :users do  
          member do  
          get 'show_albums'  
@@ -87,17 +89,19 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
         end  
         root :to ='users#index'  
 
+{% endhighlight %}
 + Creating views for forms and data show  
-
+{% highlight ruby linenos %}   
         index.html.erb
         new.html.erb
         show_albums.html.erb
         _album_fields.html.erb
         _photo_fields.html.erb
 
-  
+{% endhighlight %}  
  + Adding form html to views**  
   #### in index.html.erb :**  
+{% highlight ruby linenos %}   
         <%= link_to 'New User', new_user_path , :class => 'btn btn-medium btn-primary pull-right'%>
         <table class="table table-striped">
         <tr>
@@ -136,10 +140,10 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
         </table>
         <br />
   
-  
+{% endhighlight %}  
  
 + in new.html.erb
-  
+{% highlight ruby linenos %}     
         <%= nested_form_for @user, :html => { :multipart => true } do |f| %>
         <div class="controls">
           Username :
@@ -154,8 +158,9 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
         </div>
         <% end %>
 
+{% endhighlight %}
 + in _album_fields.html.erb
-  
+{% highlight ruby linenos %}     
         <div class="controls">
           Album Name :
           <%= f.text_field :name, :class => 'text_field' %>
@@ -166,8 +171,9 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
             </p>
         </div>
 
+{% endhighlight %}
 + in _photo_fields.html.erb
-  
+{% highlight ruby linenos %}     
         <div class="controls offset1">
           File :
           <%= f.text_field :tags_name %>
@@ -175,8 +181,9 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
           <%= f.link_to_remove "Remove this photo" %>
         </div>
 
+{% endhighlight %}
 + in show_albums.html.erb
-  
+{% highlight ruby linenos %}
         <% thumbnails = get_photos(@albums) if @albums %>
          <% if thumbnails %>
             <% thumbnails.each do |thumb| %>
@@ -184,27 +191,30 @@ categories: photo-upload multi-model-forms dropbox-rails rails-nested-forms boot
             <% end %>
          <% end %>
          <%= show_tags @albums %>
-
+          
+{% endhighlight %}
 + Add dropbox.yml in config folder with following data :**    
-   
+{% highlight ruby linenos %}
         app_key:    
         app_secret:    
         access_token:    
         access_token_secret:    
         user_id:
     
+{% endhighlight %}    
 + These variables are Environment variables in environments files.  
   
 + For detailed setup for paperclip-dropbox gem [paperclip-dropbox](https://github.com/janko-m/paperclip-dropbox)  
-  
 + Setup Twitter Bootstrap **  
-
+{% highlight ruby linenos %}
         rails generate bootstrap:install less  
         rails g bootstrap:layout application fixed**Step 10 : Run the application :**  
         bundle  
         rake db:create  
         rake db:migrate  
-        rails s  
+        rails s     
+
+{% endhighlight %}
    
    
    

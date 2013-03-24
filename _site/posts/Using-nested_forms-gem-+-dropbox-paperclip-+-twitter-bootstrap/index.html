@@ -72,199 +72,275 @@
 <p><a href="http://ashish-albums.herokuapp.com">Demo application</a></p>
 
 <ul>
-<li><p>Create a new rails app and add the gems to Gemfile.**</p>
+<li>Create a new rails app and add the gems to Gemfile.**</li>
+</ul>
 
-<pre><code>  paperclip
-  paperclip-dropbox
-  nested_form 
-</code></pre></li>
-<li><p>Create 3 models**</p>
 
-<pre><code>  rails g model User name:string  
-  rails g model Album name:string user_id:integer
-  rails g model Photo tags_name:string album_id:integer
-</code></pre></li>
-<li><p>Adding relationships among models</p>
+<div class="highlight"><pre><code class="ruby">        <span class="n">paperclip</span>
+        <span class="n">paperclip</span><span class="o">-</span><span class="n">dropbox</span>
+        <span class="n">nested_form</span>     
+      
+</code></pre></div>
 
-<h4>in app/models/user.rb</h4>
 
-<pre><code>  has_many :albums, :dependent =:destroy  
-  accepts_nested_attributes_for :albums  
-  attr_accessible :name, :albums_attributes  
-  validates_presence_of :name    
-  belongs_to :user   
-  has_many :photos, :dependent =:destroy  
-  accepts_nested_attributes_for :photos, :allow_destroy =true  
-  attr_accessible :name, :photos_attributes  
-  validates_presence_of :name   
-  belongs_to :album  
-  attr_accessible :avatar, :tags_name  
-  has_attached_file :avatar,  
-  :storage =:dropbox,  
-  :dropbox_credentials ="#{Rails.root}/config/dropbox.yml",  
-  :styles ={ :thumb ="100x100" },  
-  :dropbox_options ={  
-  :path =proc { |style| "#{style}/#{id}_#{avatar.original_filename}"}  
-  }  
-  validates_presence_of :avatar   
-</code></pre></li>
-<li><p>Adding a controller and a few actions**</p>
+<ul>
+<li>Create 3 models**</li>
+</ul>
 
-<pre><code>  rails g controller Users 
-  add following code to the controller 
-  def index  
-   @users = User.all  
-  end  
 
-  def new  
-   @user = User.new  
-  end  
+<div class="highlight"><pre><code class="ruby">        <span class="n">rails</span> <span class="n">g</span> <span class="n">model</span> <span class="no">User</span> <span class="nb">name</span><span class="ss">:string</span>  
+        <span class="n">rails</span> <span class="n">g</span> <span class="n">model</span> <span class="no">Album</span> <span class="nb">name</span><span class="ss">:string</span> <span class="n">user_id</span><span class="ss">:integer</span>
+        <span class="n">rails</span> <span class="n">g</span> <span class="n">model</span> <span class="no">Photo</span> <span class="n">tags_name</span><span class="ss">:string</span> <span class="n">album_id</span><span class="ss">:integer</span>    
+   
+</code></pre></div>
 
-  def create  
-   @user = User.new(params[:user])  
-   if @user.save  
-    redirect_to root_url  
-    else  
-     redirect_to root_url  
-   end  
-  end  
 
-  def show_albums  
-   @albums = Album.find(params[:id])  
-  end  
+<ul>
+<li>Adding relationships among models
 
-  def destroy  
-   @user = User.find(params[:id])  
-   @user.destroy  
-   redirect_to root_url  
-  end 
-</code></pre></li>
-<li><p>Adding routes to routes.rb</p>
+<h4>in app/models/user.rb</h4></li>
+</ul>
 
-<pre><code>  resources :users do  
-   member do  
-   get 'show_albums'  
-   end  
-  end  
-  root :to ='users#index'  
-</code></pre></li>
-<li><p>Creating views for forms and data show</p>
 
-<pre><code>  index.html.erb
-  new.html.erb
-  show_albums.html.erb
-  _album_fields.html.erb
-  _photo_fields.html.erb
-</code></pre></li>
-<li><p>Adding form html to views**</p>
+<div class="highlight"><pre><code class="ruby">        <span class="n">has_many</span> <span class="ss">:albums</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=</span><span class="ss">:destroy</span>  
+        <span class="n">accepts_nested_attributes_for</span> <span class="ss">:albums</span>  
+        <span class="n">attr_accessible</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:albums_attributes</span>  
+        <span class="n">validates_presence_of</span> <span class="ss">:name</span>    
+        <span class="n">belongs_to</span> <span class="ss">:user</span>   
+        <span class="n">has_many</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=</span><span class="ss">:destroy</span>  
+        <span class="n">accepts_nested_attributes_for</span> <span class="ss">:photos</span><span class="p">,</span> <span class="ss">:allow_destroy</span> <span class="o">=</span><span class="kp">true</span>  
+        <span class="n">attr_accessible</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:photos_attributes</span>  
+        <span class="n">validates_presence_of</span> <span class="ss">:name</span>   
+        <span class="n">belongs_to</span> <span class="ss">:album</span>  
+        <span class="n">attr_accessible</span> <span class="ss">:avatar</span><span class="p">,</span> <span class="ss">:tags_name</span>  
+        <span class="n">has_attached_file</span> <span class="ss">:avatar</span><span class="p">,</span>  
+        <span class="ss">:storage</span> <span class="o">=</span><span class="ss">:dropbox</span><span class="p">,</span>  
+        <span class="ss">:dropbox_credentials</span> <span class="o">=</span><span class="s2">&quot;</span><span class="si">#{</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/config/dropbox.yml&quot;</span><span class="p">,</span>  
+        <span class="ss">:styles</span> <span class="o">=</span><span class="p">{</span> <span class="ss">:thumb</span> <span class="o">=</span><span class="s2">&quot;100x100&quot;</span> <span class="p">},</span>  
+        <span class="ss">:dropbox_options</span> <span class="o">=</span><span class="p">{</span>  
+        <span class="ss">:path</span> <span class="o">=</span><span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">style</span><span class="o">|</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">style</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">_</span><span class="si">#{</span><span class="n">avatar</span><span class="o">.</span><span class="n">original_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>  
+        <span class="p">}</span>  
+        <span class="n">validates_presence_of</span> <span class="ss">:avatar</span>   
+</code></pre></div>
 
-<h4>in index.html.erb :**</h4>
 
-<pre><code> &lt;%= link_to 'New User', new_user_path , :class =&gt; 'btn btn-medium btn-primary pull-right'%&gt;
- &lt;table class="table table-striped"&gt;
- &lt;tr&gt;
- &lt;th&gt;Name&lt;/th&gt;
- &lt;th&gt;Album Names&lt;/th&gt;
- &lt;!--th&gt;Tags&lt;/th--&gt;
- &lt;th&gt;Destroy&lt;/th&gt;
- &lt;/tr&gt;
- &lt;% @users.each do |user| %&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;%= user.name %&gt;&lt;/td&gt;
- &lt;td&gt;
-   &lt;% (user_albums_link user).each do |album_link| %&gt;
-     &lt;%= album_link.html_safe %&gt;
-   &lt;% end %&gt;
-  &lt;% thumbnails = show_photo_thumbnails(user.albums) if user.albums %&gt;
-  &lt;% if thumbnails %&gt;
-     &lt;% thumbnails.each do |thumb| %&gt;
-       &lt;%= thumb.html_safe  %&gt;
-     &lt;% end %&gt;
-  &lt;% end %&gt;
- &lt;/td&gt;
- &lt;!--td&gt;
-   &lt;%#= tags user.albums %&gt;
- &lt;/td--&gt;
- &lt;td&gt;
-     &lt;%= link_to t('.destroy', :default =&gt; t("helpers.links.destroy")),
-       user_path(user),
-       :method =&gt; :delete,
-       :data =&gt; { :confirm =&gt; t('.confirm', 
-       :default =&gt; t("helpers.links.confirm", :default =&gt; 'Are you sure?')) },
-       :class =&gt; 'btn btn-mini btn-danger' %&gt;
- &lt;/td&gt;
- &lt;/tr&gt;
- &lt;% end %&gt;
- &lt;/table&gt;
- &lt;br /&gt;
-</code></pre></li>
-<li><p>in new.html.erb</p>
+<ul>
+<li>Adding a controller and a few actions**</li>
+</ul>
 
-<pre><code>  &lt;%= nested_form_for @user, :html =&gt; { :multipart =&gt; true } do |f| %&gt;
-  &lt;div class="controls"&gt;
-    Username :
-    &lt;%= f.text_field :name, :class =&gt; 'text_field' %&gt;
-  &lt;/div&gt;
-  &lt;%= f.fields_for :albums %&gt;
-  &lt;%= f.link_to_add "Add an album", :albums %&gt;
-  &lt;br /&gt;
-  &lt;br /&gt;
-  &lt;div class="controls"&gt;
-    &lt;%= f.submit nil, :class =&gt; 'btn btn-primary' %&gt;
-  &lt;/div&gt;
-  &lt;% end %&gt;
-</code></pre></li>
-<li><p>in _album_fields.html.erb</p>
 
-<pre><code>  &lt;div class="controls"&gt;
-    Album Name :
-    &lt;%= f.text_field :name, :class =&gt; 'text_field' %&gt;
-    &lt;%= f.link_to_remove "Remove this album" %&gt;
-    &lt;%= f.fields_for :photos %&gt;
-      &lt;p&gt;
-      &lt;%= f.link_to_add "Add a photo", :photos %&gt;
-      &lt;/p&gt;
-  &lt;/div&gt;
-</code></pre></li>
-<li><p>in _photo_fields.html.erb</p>
+<div class="highlight"><pre><code class="ruby">   
+    <span class="n">rails</span> <span class="n">g</span> <span class="n">controller</span> <span class="no">Users</span> 
+        <span class="n">add</span> <span class="n">following</span> <span class="n">code</span> <span class="n">to</span> <span class="n">the</span> <span class="n">controller</span> 
+        <span class="k">def</span> <span class="nf">index</span>  
+         <span class="vi">@users</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">all</span>  
+        <span class="k">end</span>  
+          
+        <span class="k">def</span> <span class="nf">new</span>  
+         <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span>  
+        <span class="k">end</span>  
+          
+        <span class="k">def</span> <span class="nf">create</span>  
+         <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:user</span><span class="o">]</span><span class="p">)</span>  
+         <span class="k">if</span> <span class="vi">@user</span><span class="o">.</span><span class="n">save</span>  
+          <span class="n">redirect_to</span> <span class="n">root_url</span>  
+          <span class="k">else</span>  
+           <span class="n">redirect_to</span> <span class="n">root_url</span>  
+         <span class="k">end</span>  
+        <span class="k">end</span>  
+          
+        <span class="k">def</span> <span class="nf">show_albums</span>  
+         <span class="vi">@albums</span> <span class="o">=</span> <span class="no">Album</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>  
+        <span class="k">end</span>  
+          
+        <span class="k">def</span> <span class="nf">destroy</span>  
+         <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>  
+         <span class="vi">@user</span><span class="o">.</span><span class="n">destroy</span>  
+         <span class="n">redirect_to</span> <span class="n">root_url</span>  
+        <span class="k">end</span> 
+      
+</code></pre></div>
 
-<pre><code>  &lt;div class="controls offset1"&gt;
-    File :
-    &lt;%= f.text_field :tags_name %&gt;
-    &lt;%= f.file_field :avatar %&gt;
-    &lt;%= f.link_to_remove "Remove this photo" %&gt;
-  &lt;/div&gt;
-</code></pre></li>
-<li><p>in show_albums.html.erb</p>
 
-<pre><code>  &lt;% thumbnails = get_photos(@albums) if @albums %&gt;
-   &lt;% if thumbnails %&gt;
-      &lt;% thumbnails.each do |thumb| %&gt;
-        &lt;%= thumb.html_safe  %&gt;
-      &lt;% end %&gt;
-   &lt;% end %&gt;
-   &lt;%= show_tags @albums %&gt;
-</code></pre></li>
-<li><p>Add dropbox.yml in config folder with following data :**</p>
+<ul>
+<li>Adding routes to routes.rb</li>
+</ul>
 
-<pre><code>  app_key:    
-  app_secret:    
-  access_token:    
-  access_token_secret:    
-  user_id:
-</code></pre></li>
+
+<div class="highlight"><pre><code class="ruby">   
+        <span class="n">resources</span> <span class="ss">:users</span> <span class="k">do</span>  
+         <span class="n">member</span> <span class="k">do</span>  
+         <span class="n">get</span> <span class="s1">&#39;show_albums&#39;</span>  
+         <span class="k">end</span>  
+        <span class="k">end</span>  
+        <span class="n">root</span> <span class="ss">:to</span> <span class="o">=</span><span class="s1">&#39;users#index&#39;</span>  
+</code></pre></div>
+
+
+<ul>
+<li>Creating views for forms and data show</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">   
+        <span class="n">index</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span>
+        <span class="kp">new</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span>
+        <span class="n">show_albums</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span>
+        <span class="n">_album_fields</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span>
+        <span class="n">_photo_fields</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">erb</span>
+</code></pre></div>
+
+
+<ul>
+<li>Adding form html to views**
+
+<h4>in index.html.erb :**</h4></li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">   
+        <span class="o">&lt;</span><span class="sx">%= link_to &#39;New User&#39;, new_user_path , :class =</span><span class="o">&gt;</span> <span class="s1">&#39;btn btn-medium btn-primary pull-right&#39;</span><span class="sx">%&gt;</span>
+<span class="sx">        &lt;table class=&quot;table table-striped&quot;&gt;</span>
+        <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="no">Name</span><span class="o">&lt;</span><span class="sr">/th&gt;</span>
+<span class="sr">        &lt;th&gt;Album Names&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span><span class="n">th</span><span class="o">&gt;</span><span class="no">Tags</span><span class="o">&lt;</span><span class="sr">/th--&gt;</span>
+<span class="sr">        &lt;th&gt;Destroy&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/tr&gt;</span>
+<span class="sr">        &lt;% @users.each do |user| %&gt;</span>
+<span class="sr">        &lt;tr&gt;</span>
+<span class="sr">        &lt;td&gt;&lt;%= user.name %&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="sx">% (user_albums_link </span><span class="n">user</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">album_link</span><span class="o">|</span> <span class="sx">%&gt;</span>
+<span class="sx">            &lt;%= album_link.html_safe %&gt;</span>
+          <span class="o">&lt;</span><span class="sx">% end %&gt;</span>
+<span class="sx">         &lt;% thumbnails = show_photo_thumbnails(user.albums) if user.albums %&gt;</span>
+         <span class="o">&lt;</span><span class="sx">% if </span><span class="n">thumbnails</span> <span class="sx">%&gt;</span>
+<span class="sx">            &lt;% thumbnails.each do |thumb| %&gt;</span>
+              <span class="o">&lt;</span><span class="sx">%= thumb.html_safe  %&gt;</span>
+<span class="sx">            &lt;% end %&gt;</span>
+<span class="sx">         &lt;% end %&gt;</span>
+<span class="sx">        &lt;/td&gt;</span>
+<span class="sx">        &lt;!--td&gt;</span>
+<span class="sx">          &lt;%#=</span> <span class="n">tags</span> <span class="n">user</span><span class="o">.</span><span class="n">albums</span> <span class="sx">%&gt;</span>
+<span class="sx">        &lt;/td--&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="sx">%= link_to t(&#39;.destroy&#39;, :default =</span><span class="o">&gt;</span> <span class="n">t</span><span class="p">(</span><span class="s2">&quot;helpers.links.destroy&quot;</span><span class="p">)),</span>
+              <span class="n">user_path</span><span class="p">(</span><span class="n">user</span><span class="p">),</span>
+              <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="ss">:delete</span><span class="p">,</span>
+              <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:confirm</span> <span class="o">=&gt;</span> <span class="n">t</span><span class="p">(</span><span class="s1">&#39;.confirm&#39;</span><span class="p">,</span> 
+              <span class="ss">:default</span> <span class="o">=&gt;</span> <span class="n">t</span><span class="p">(</span><span class="s2">&quot;helpers.links.confirm&quot;</span><span class="p">,</span> <span class="ss">:default</span> <span class="o">=&gt;</span> <span class="s1">&#39;Are you sure?&#39;</span><span class="p">))</span> <span class="p">},</span>
+              <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;btn btn-mini btn-danger&#39;</span> <span class="sx">%&gt;</span>
+<span class="sx">        &lt;/td&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/tr&gt;</span>
+<span class="sr">        &lt;% end %&gt;</span>
+<span class="sr">        &lt;/</span><span class="n">table</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">br</span> <span class="sr">/&gt;</span>
+<span class="sr">  </span>
+</code></pre></div>
+
+
+<ul>
+<li>in new.html.erb</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">     
+        <span class="o">&lt;</span><span class="sx">%= nested_form_for @user, :html =</span><span class="o">&gt;</span> <span class="p">{</span> <span class="ss">:multipart</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="p">}</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="sx">%&gt;</span>
+<span class="sx">        &lt;div class=&quot;controls&quot;&gt;</span>
+          <span class="no">Username</span> <span class="p">:</span>
+          <span class="o">&lt;</span><span class="sx">%= f.text_field :name, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;text_field&#39;</span> <span class="sx">%&gt;</span>
+<span class="sx">        &lt;/div&gt;</span>
+        <span class="o">&lt;</span><span class="sx">%= f.fields_for :albums %&gt;</span>
+<span class="sx">        &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">link_to_add</span> <span class="s2">&quot;Add an album&quot;</span><span class="p">,</span> <span class="ss">:albums</span> <span class="sx">%&gt;</span>
+<span class="sx">        &lt;br /&gt;</span>
+        <span class="o">&lt;</span><span class="n">br</span> <span class="sr">/&gt;</span>
+<span class="sr">        &lt;div class=&quot;controls&quot;&gt;</span>
+<span class="sr">          &lt;%= f.submit nil, :class =&gt; &#39;btn btn-primary&#39; %&gt;</span>
+<span class="sr">        &lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
+</code></pre></div>
+
+
+<ul>
+<li>in _album_fields.html.erb</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">     
+        <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;controls&quot;</span><span class="o">&gt;</span>
+          <span class="no">Album</span> <span class="no">Name</span> <span class="p">:</span>
+          <span class="o">&lt;</span><span class="sx">%= f.text_field :name, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;text_field&#39;</span> <span class="sx">%&gt;</span>
+<span class="sx">          &lt;%= f.link_to_remove &quot;Remove this album&quot; %&gt;</span>
+          <span class="o">&lt;</span><span class="sx">%= f.fields_for :photos %&gt;</span>
+<span class="sx">            &lt;p&gt;</span>
+<span class="sx">            &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">link_to_add</span> <span class="s2">&quot;Add a photo&quot;</span><span class="p">,</span> <span class="ss">:photos</span> <span class="sx">%&gt;</span>
+<span class="sx">            &lt;/p&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</code></pre></div>
+
+
+<ul>
+<li>in _photo_fields.html.erb</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">     
+        <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;controls offset1&quot;</span><span class="o">&gt;</span>
+          <span class="no">File</span> <span class="p">:</span>
+          <span class="o">&lt;</span><span class="sx">%= f.text_field :tags_name %&gt;</span>
+<span class="sx">          &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">file_field</span> <span class="ss">:avatar</span> <span class="sx">%&gt;</span>
+<span class="sx">          &lt;%= f.link_to_remove &quot;Remove this photo&quot; %&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</code></pre></div>
+
+
+<ul>
+<li>in show_albums.html.erb</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">        <span class="o">&lt;</span><span class="sx">% thumbnails </span><span class="o">=</span> <span class="n">get_photos</span><span class="p">(</span><span class="vi">@albums</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@albums</span> <span class="sx">%&gt;</span>
+<span class="sx">         &lt;% if thumbnails %&gt;</span>
+            <span class="o">&lt;</span><span class="sx">% thumbnails.each </span><span class="k">do</span> <span class="o">|</span><span class="n">thumb</span><span class="o">|</span> <span class="sx">%&gt;</span>
+<span class="sx">              &lt;%= thumb.html_safe  %&gt;</span>
+            <span class="o">&lt;</span><span class="sx">% end %&gt;</span>
+<span class="sx">         &lt;% end %&gt;</span>
+         <span class="o">&lt;%=</span> <span class="n">show_tags</span> <span class="vi">@albums</span> <span class="o">%&gt;</span>
+          
+</code></pre></div>
+
+
+<ul>
+<li>Add dropbox.yml in config folder with following data :**</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="ruby">        <span class="n">app_key</span><span class="p">:</span>    
+        <span class="n">app_secret</span><span class="p">:</span>    
+        <span class="n">access_token</span><span class="p">:</span>    
+        <span class="n">access_token_secret</span><span class="p">:</span>    
+        <span class="n">user_id</span><span class="p">:</span>
+    
+</code></pre></div>
+
+
+<ul>
 <li><p>These variables are Environment variables in environments files.</p></li>
 <li><p>For detailed setup for paperclip-dropbox gem <a href="https://github.com/janko-m/paperclip-dropbox">paperclip-dropbox</a></p></li>
-<li><p>Setup Twitter Bootstrap **</p>
-
-<pre><code>  rails generate bootstrap:install less  
-  rails g bootstrap:layout application fixed**Step 10 : Run the application :**  
-  bundle  
-  rake db:create  
-  rake db:migrate  
-  rails s  
-</code></pre></li>
+<li>Setup Twitter Bootstrap **</li>
 </ul>
+
+
+<div class="highlight"><pre><code class="ruby">        <span class="n">rails</span> <span class="n">generate</span> <span class="ss">bootstrap</span><span class="p">:</span><span class="n">install</span> <span class="n">less</span>  
+        <span class="n">rails</span> <span class="n">g</span> <span class="ss">bootstrap</span><span class="p">:</span><span class="n">layout</span> <span class="n">application</span> <span class="n">fixed</span><span class="o">**</span><span class="no">Step</span> <span class="mi">10</span> <span class="p">:</span> <span class="no">Run</span> <span class="n">the</span> <span class="n">application</span> <span class="ss">:**</span>  
+        <span class="n">bundle</span>  
+        <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">create</span>  
+        <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>  
+        <span class="n">rails</span> <span class="n">s</span>     
+</code></pre></div>
+
+
 
 
 
