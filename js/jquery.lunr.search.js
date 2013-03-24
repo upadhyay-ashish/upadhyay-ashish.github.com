@@ -129,9 +129,12 @@
       if (entries.length === 0) {
         $entries.append('<p>Nothing found.</p>')
       } else {
-        alert(this.$entries.attr('class'));
-        alert(this.template);
-        $entries.append(this.template({entries: entries}));
+
+        //$entries.append(this.template({entries: entries}));
+        $.each(entries, function(index, value){
+          html = " <a style='font-size:.7em' href='"+ value.url +"'>"+(index+1) +". " +  value.title +"</a><br />";
+          $entries.append(html);
+        });
       }
       
       $results.show();
