@@ -4,7 +4,7 @@
  <title>Ashish Upadhyay</title>
  <link href="http://rorashish.blogspot.com/atom.xml" rel="self"/>
  <link href="http://rorashish.blogspot.com/"/>
- <updated>2013-03-26T04:48:38+05:30</updated>
+ <updated>2013-03-26T04:51:18+05:30</updated>
  <id>http://rorashish.blogspot.com</id>
  <author>
    <name>Ashish Upadhyay</name>
@@ -13,9 +13,9 @@
  
  <entry>
    <title>Using Rubymotion for iOS application development</title>
-   <link href="http://rorashish.blogspot.com/posts/Rubymotion"/>
+   <link href="http://rorashish.blogspot.com/2013/03/Rubymotion"/>
    <updated>2013-03-23T00:00:00+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Rubymotion</id>
+   <id>http://rorashish.blogspot.com/2013/03/Rubymotion</id>
    <content type="html">&lt;h2&gt;TCS RSS Feed Reader  123&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/upadhyay-ashish/TCSRssReader&quot;&gt;TCS RSS Feed&lt;/a&gt;&lt;/p&gt;
@@ -63,9 +63,9 @@
  
  <entry>
    <title>Replacing master with a branch GIT</title>
-   <link href="http://rorashish.blogspot.com/posts/Replacing-master-with-a-branch-GIT"/>
+   <link href="http://rorashish.blogspot.com/2013/02/Replacing-master-with-a-branch-GIT"/>
    <updated>2013-02-25T17:19:27+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Replacing-master-with-a-branch-GIT</id>
+   <id>http://rorashish.blogspot.com/2013/02/Replacing-master-with-a-branch-GIT</id>
    <content type="html">&lt;h3&gt;This will help us to overwrite the master branch with a new branch incase the new branch is in a better state than the master&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;    git checkout seotweaks
@@ -78,9 +78,9 @@
  
  <entry>
    <title>Using Oracle JDBC with JRuby on Mac OSx</title>
-   <link href="http://rorashish.blogspot.com/posts/Using-Oracle-JDBC-with-JRuby-on-Mac-OSx"/>
+   <link href="http://rorashish.blogspot.com/2013/01/Using-Oracle-JDBC-with-JRuby-on-Mac-OSx"/>
    <updated>2013-01-08T21:02:14+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Using-Oracle-JDBC-with-JRuby-on-Mac-OSx</id>
+   <id>http://rorashish.blogspot.com/2013/01/Using-Oracle-JDBC-with-JRuby-on-Mac-OSx</id>
    <content type="html">&lt;h3&gt;Please follow the below steps to create a jruby library to connect to any oracle database on Mac OS x using Java ODBC drivers.&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -123,9 +123,9 @@ and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&
  
  <entry>
    <title>Using nested_forms gem + dropbox-paperclip + twitter-bootstrap</title>
-   <link href="http://rorashish.blogspot.com/posts/Using-nested_forms-gem-%2B-dropbox-paperclip-%2B-twitter-bootstrap"/>
+   <link href="http://rorashish.blogspot.com/2012/12/Using-nested_forms-gem-%2B-dropbox-paperclip-%2B-twitter-bootstrap"/>
    <updated>2012-12-08T13:55:52+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Using-nested_forms-gem-+-dropbox-paperclip-+-twitter-bootstrap</id>
+   <id>http://rorashish.blogspot.com/2012/12/Using-nested_forms-gem-+-dropbox-paperclip-+-twitter-bootstrap</id>
    <content type="html">&lt;h4&gt;This is a tutorial about using nested_forms gem with dropbox-paperclip plugin on Heroku to create a multiple photo upload albums interface with twitter bootstrap&lt;/h4&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://ashish-albums.herokuapp.com&quot;&gt;Demo application&lt;/a&gt;&lt;/p&gt;
@@ -406,9 +406,9 @@ and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&
  
  <entry>
    <title>Cloning a specific GIT branch from a repository</title>
-   <link href="http://rorashish.blogspot.com/posts/Cloning-a-specific-GIT-branch-from-a-repository"/>
+   <link href="http://rorashish.blogspot.com/2012/10/Cloning-a-specific-GIT-branch-from-a-repository"/>
    <updated>2012-10-22T13:45:13+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Cloning-a-specific-GIT-branch-from-a-repository</id>
+   <id>http://rorashish.blogspot.com/2012/10/Cloning-a-specific-GIT-branch-from-a-repository</id>
    <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Clone the master branch&lt;/p&gt;
 
@@ -433,9 +433,9 @@ and place it in &lt;code&gt;/Library/Java/Extensions/&lt;/code&gt; on your mac.&
  
  <entry>
    <title>Migrating code from SVN to GIT</title>
-   <link href="http://rorashish.blogspot.com/posts/Migrating-code-from-SVN-to-GIT"/>
+   <link href="http://rorashish.blogspot.com/2012/09/Migrating-code-from-SVN-to-GIT"/>
    <updated>2012-09-28T00:33:52+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Migrating-code-from-SVN-to-GIT</id>
+   <id>http://rorashish.blogspot.com/2012/09/Migrating-code-from-SVN-to-GIT</id>
    <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Install &lt;code&gt;git-svn&lt;/code&gt; on ubuntu or linux&lt;/p&gt;
 
@@ -468,9 +468,9 @@ Next, move the rest of the references under refs/remotes to be local branches:&l
  
  <entry>
    <title>Fix Readline error Ubuntu</title>
-   <link href="http://rorashish.blogspot.com/posts/Fix-Readline-error-Ubuntu"/>
+   <link href="http://rorashish.blogspot.com/2012/08/Fix-Readline-error-Ubuntu"/>
    <updated>2012-08-11T00:48:12+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Fix-Readline-error-Ubuntu</id>
+   <id>http://rorashish.blogspot.com/2012/08/Fix-Readline-error-Ubuntu</id>
    <content type="html">&lt;pre&gt;&lt;code&gt;    sudo apt-get install libreadline-dev
 
     cd ~/.rvm/src/ruby-1.8.7-p249/ext/readline
@@ -482,9 +482,9 @@ Next, move the rest of the references under refs/remotes to be local branches:&l
  
  <entry>
    <title>Capistrano</title>
-   <link href="http://rorashish.blogspot.com/posts/Capistrano-%2B-GIT-%3A-Too-many-arguments-while-deployment"/>
+   <link href="http://rorashish.blogspot.com/2012/08/Capistrano-%2B-GIT-%3A-Too-many-arguments-while-deployment"/>
    <updated>2012-08-10T00:00:00+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Capistrano-+-GIT-:-Too-many-arguments-while-deployment</id>
+   <id>http://rorashish.blogspot.com/2012/08/Capistrano-+-GIT-:-Too-many-arguments-while-deployment</id>
    <content type="html">&lt;h2&gt;Too many arguments while deployment&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Issue : shell command failed with return code 33024&lt;/strong&gt;&lt;/p&gt;
@@ -524,9 +524,9 @@ end
  
  <entry>
    <title>Installing RMagick with Imagemagic on Windows 7/Vista</title>
-   <link href="http://rorashish.blogspot.com/posts/Installing-RMagick-with-Imagemagic-on-Windows-7"/>
+   <link href="http://rorashish.blogspot.com/2012/08/Installing-RMagick-with-Imagemagic-on-Windows-7"/>
    <updated>2012-08-09T14:00:18+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Installing-RMagick-with-Imagemagic-on-Windows-7</id>
+   <id>http://rorashish.blogspot.com/2012/08/Installing-RMagick-with-Imagemagic-on-Windows-7</id>
    <content type="html">&lt;p&gt;Working with Windows 7 64bit and Ruby 1.9.3.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -554,9 +554,9 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
  
  <entry>
    <title>Creating a native iOS application !</title>
-   <link href="http://rorashish.blogspot.com/posts/Creating-a-native-iOS-application"/>
+   <link href="http://rorashish.blogspot.com/2012/06/Creating-a-native-iOS-application"/>
    <updated>2012-06-13T19:47:34+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Creating-a-native-iOS-application</id>
+   <id>http://rorashish.blogspot.com/2012/06/Creating-a-native-iOS-application</id>
    <content type="html">&lt;h3&gt;Installing XCode on the system&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -651,9 +651,9 @@ Use the 32 bit version, 64bit is not working.&lt;br/&gt;
  
  <entry>
    <title>Setting up Rhomobile with an Android Emulator</title>
-   <link href="http://rorashish.blogspot.com/posts/Setting-up-RHODES-with-an-Android-Emulator"/>
+   <link href="http://rorashish.blogspot.com/2012/02/Setting-up-RHODES-with-an-Android-Emulator"/>
    <updated>2012-02-11T00:00:00+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Setting-up-RHODES-with-an-Android-Emulator</id>
+   <id>http://rorashish.blogspot.com/2012/02/Setting-up-RHODES-with-an-Android-Emulator</id>
    <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Installing Ruby. Please follow the sequence of commands given below to install ruby on ubuntu using RVM.&lt;/p&gt;
 
@@ -714,9 +714,9 @@ Now we can go forward designing the mobile application.&lt;/p&gt;&lt;/li&gt;
  
  <entry>
    <title>Export to Excel in Rails 3 without a Gem</title>
-   <link href="http://rorashish.blogspot.com/posts/Export-to-Excel-in-Rails-3-without-a-Gem"/>
+   <link href="http://rorashish.blogspot.com/2011/11/Export-to-Excel-in-Rails-3-without-a-Gem"/>
    <updated>2011-11-30T02:32:54+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Export-to-Excel-in-Rails-3-without-a-Gem</id>
+   <id>http://rorashish.blogspot.com/2011/11/Export-to-Excel-in-Rails-3-without-a-Gem</id>
    <content type="html">&lt;ul&gt;
 &lt;li&gt;Creating Demo project&lt;/li&gt;
 &lt;/ul&gt;
@@ -815,9 +815,9 @@ Now we can go forward designing the mobile application.&lt;/p&gt;&lt;/li&gt;
  
  <entry>
    <title>Action Mailer</title>
-   <link href="http://rorashish.blogspot.com/posts/Action-Mailer-for-Rails-3"/>
+   <link href="http://rorashish.blogspot.com/2011/11/Action-Mailer-for-Rails-3"/>
    <updated>2011-11-11T01:45:45+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/Action-Mailer-for-Rails-3</id>
+   <id>http://rorashish.blogspot.com/2011/11/Action-Mailer-for-Rails-3</id>
    <content type="html">&lt;h2&gt;For rails 3&lt;/h2&gt;
 
 &lt;p&gt;Action Mailer allows you to send email from your application using a mailer
@@ -908,9 +908,9 @@ the user enters for the new record.&lt;/p&gt;
  
  <entry>
    <title>Action Mailer 2.3.9</title>
-   <link href="http://rorashish.blogspot.com/posts/ActionMailer-2.3.9-Tutorial"/>
+   <link href="http://rorashish.blogspot.com/2011/11/ActionMailer-2.3.9-Tutorial"/>
    <updated>2011-11-11T01:35:14+05:30</updated>
-   <id>http://rorashish.blogspot.com/posts/ActionMailer-2.3.9-Tutorial</id>
+   <id>http://rorashish.blogspot.com/2011/11/ActionMailer-2.3.9-Tutorial</id>
    <content type="html">&lt;h1&gt;Easy email delivery and testing&lt;/h1&gt;
 
 &lt;p&gt;Action Mailer allows you to send email from your application using a mailer model and views.&lt;br/&gt;
